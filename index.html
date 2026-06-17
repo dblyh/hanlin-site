@@ -4,72 +4,744 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>翰林斉家株式会社 - 公式サイト</title>
+  <meta
+    name="description"
+    content="翰林斉家株式会社は、大阪市内を中心に不動産売買、賃貸仲介、不動産管理、投資・収益物件、在日生活サポートを行う不動産会社です。"
+  />
+  <title>翰林斉家株式会社 - 大阪市内の不動産売買・賃貸仲介・管理</title>
+  <style>
+    :root {
+      --ink: #1f2a2e;
+      --muted: #627074;
+      --line: #dfe7e4;
+      --paper: #fbfcfb;
+      --soft: #eef6f2;
+      --accent: #5f8f7a;
+      --accent-dark: #2f6654;
+      --white: #ffffff;
+      --shadow: 0 20px 45px rgba(31, 42, 46, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif;
+      line-height: 1.8;
+      background:
+        radial-gradient(circle at top left, rgba(95, 143, 122, 0.18), transparent 34rem),
+        linear-gradient(180deg, #f7fbf8 0%, var(--paper) 42%, #ffffff 100%);
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .site-header {
+      min-height: 92vh;
+      padding: 32px clamp(20px, 5vw, 72px) 56px;
+      display: grid;
+      grid-template-rows: auto 1fr;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .site-header::after {
+      content: "";
+      width: 34rem;
+      height: 34rem;
+      border: 1px solid rgba(95, 143, 122, 0.18);
+      border-radius: 50%;
+      position: absolute;
+      right: -12rem;
+      top: 8rem;
+      animation: breathe 8s ease-in-out infinite;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-weight: 700;
+      letter-spacing: 0;
+    }
+
+    .brand img {
+      width: 56px;
+      height: 56px;
+      object-fit: contain;
+      border-radius: 50%;
+      background: var(--white);
+      box-shadow: 0 8px 24px rgba(31, 42, 46, 0.1);
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      padding-bottom: 4px;
+      border-bottom: 1px solid transparent;
+      transition: color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent-dark);
+      border-color: var(--accent);
+    }
+
+    .hero {
+      align-self: center;
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(280px, 0.75fr);
+      gap: clamp(32px, 6vw, 72px);
+      align-items: center;
+      position: relative;
+      z-index: 1;
+      padding-top: 44px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 18px;
+      color: var(--accent-dark);
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 36px;
+      height: 1px;
+      background: var(--accent);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.4rem, 7vw, 5.5rem);
+      line-height: 1.08;
+      letter-spacing: 0;
+    }
+
+    .hero-lead {
+      max-width: 680px;
+      margin: 24px 0 0;
+      color: var(--muted);
+      font-size: clamp(1.02rem, 2vw, 1.25rem);
+    }
+
+    .credentials {
+      display: grid;
+      gap: 10px;
+      margin: 32px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .credentials li {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      color: #344246;
+    }
+
+    .credentials li::before {
+      content: "";
+      flex: 0 0 7px;
+      width: 7px;
+      height: 7px;
+      margin-top: 12px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    .hero-card {
+      background: rgba(255, 255, 255, 0.74);
+      border: 1px solid rgba(223, 231, 228, 0.9);
+      box-shadow: var(--shadow);
+      padding: 28px;
+      backdrop-filter: blur(16px);
+      animation: floatCard 5.5s ease-in-out infinite;
+    }
+
+    .hero-card img {
+      width: 150px;
+      margin: 0 auto 24px;
+    }
+
+    .hero-card dl {
+      margin: 0;
+      display: grid;
+      gap: 16px;
+    }
+
+    .hero-card dt {
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+
+    .hero-card dd {
+      margin: 2px 0 0;
+      font-weight: 700;
+    }
+
+    main {
+      overflow: hidden;
+    }
+
+    .section {
+      padding: 84px clamp(20px, 5vw, 72px);
+    }
+
+    .section-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    .section-kicker {
+      margin: 0 0 8px;
+      color: var(--accent-dark);
+      font-size: 0.88rem;
+      font-weight: 700;
+    }
+
+    h2 {
+      margin: 0 0 22px;
+      font-size: clamp(1.7rem, 4vw, 3rem);
+      line-height: 1.25;
+      letter-spacing: 0;
+    }
+
+    .section-copy {
+      max-width: 780px;
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 40px;
+    }
+
+    .service {
+      min-height: 290px;
+      padding: 24px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.82);
+      box-shadow: 0 12px 28px rgba(31, 42, 46, 0.05);
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    }
+
+    .service:hover {
+      transform: translateY(-6px);
+      border-color: rgba(95, 143, 122, 0.5);
+      box-shadow: var(--shadow);
+    }
+
+    .service-number {
+      color: var(--accent);
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+
+    .service h3 {
+      margin: 16px 0 14px;
+      font-size: 1.18rem;
+      line-height: 1.45;
+    }
+
+    .service p {
+      margin: 0 0 12px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .about {
+      background: var(--soft);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+      gap: clamp(28px, 6vw, 72px);
+      align-items: start;
+    }
+
+    .about-note {
+      padding: 28px;
+      background: var(--white);
+      border-left: 4px solid var(--accent);
+      box-shadow: 0 14px 32px rgba(31, 42, 46, 0.06);
+    }
+
+    .about-note p,
+    .about-text p {
+      margin: 0 0 16px;
+      color: var(--muted);
+    }
+
+    .about-text p:last-child,
+    .about-note p:last-child {
+      margin-bottom: 0;
+    }
+
+    .contact-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin-top: 34px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .contact-list li {
+      padding: 22px;
+      background: var(--white);
+      border: 1px solid var(--line);
+    }
+
+    .contact-list span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.86rem;
+      margin-bottom: 6px;
+    }
+
+    .properties {
+      background: #ffffff;
+    }
+
+    .property-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 34px;
+    }
+
+    .property-list.featured {
+      grid-template-columns: 1fr;
+    }
+
+    .property {
+      border: 1px solid var(--line);
+      padding: 24px;
+      background: var(--paper);
+    }
+
+    .property.featured {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(260px, 0.55fr);
+      gap: 26px;
+      align-items: start;
+      background:
+        linear-gradient(135deg, rgba(238, 246, 242, 0.92), rgba(255, 255, 255, 0.96)),
+        var(--white);
+      border-color: rgba(95, 143, 122, 0.28);
+      box-shadow: var(--shadow);
+    }
+
+    .property h3 {
+      margin: 0 0 14px;
+      font-size: 1.12rem;
+    }
+
+    .property-eyebrow {
+      margin: 0 0 8px;
+      color: var(--accent-dark);
+      font-size: 0.84rem;
+      font-weight: 700;
+    }
+
+    .property-lead {
+      margin: 0 0 18px;
+      color: var(--muted);
+    }
+
+    .property-points {
+      display: grid;
+      gap: 12px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .property-points li {
+      padding: 13px 14px;
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid rgba(223, 231, 228, 0.9);
+      color: #344246;
+      font-weight: 700;
+    }
+
+    .property.archived {
+      display: none;
+    }
+
+    .property ul {
+      margin: 0;
+      padding-left: 1.2rem;
+      color: var(--muted);
+    }
+
+    footer {
+      padding: 30px clamp(20px, 5vw, 72px);
+      color: var(--muted);
+      border-top: 1px solid var(--line);
+      background: var(--white);
+    }
+
+    footer p {
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @keyframes breathe {
+      0%, 100% {
+        transform: scale(1);
+        opacity: 0.55;
+      }
+      50% {
+        transform: scale(1.04);
+        opacity: 0.85;
+      }
+    }
+
+    @keyframes floatCard {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    @media (max-width: 980px) {
+      .hero,
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .services {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 720px) {
+      .site-header {
+        min-height: auto;
+      }
+
+      .nav {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .nav-links {
+        gap: 10px 14px;
+      }
+
+      .services,
+      .contact-list,
+      .property-list,
+      .property.featured {
+        grid-template-columns: 1fr;
+      }
+
+      .section {
+        padding-top: 64px;
+        padding-bottom: 64px;
+      }
+
+      .hero-card {
+        animation: none;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <img src="/logo.jpg" alt="公司ロゴ" style="width: 160px; float: right;" />
-    <h1>翰林斉家株式会社</h1>
-    <p>大阪府知事（1）第66017号</p>
-    <p>〒540-0029 大阪市中央区本町橋6-21 シャンボール内本町302号室</p>
-    <p>TEL / FAX：06-7650-5103</p>
+  <header class="site-header">
+    <nav class="nav" aria-label="主要ナビゲーション">
+      <div class="brand">
+        <img src="logo.jpg" alt="翰林斉家株式会社ロゴ" width="56" height="56" />
+        <span>翰林斉家株式会社</span>
+      </div>
+      <div class="nav-links">
+        <a href="#services">業務内容</a>
+        <a href="#about">私たちについて</a>
+        <a href="#properties">物件情報</a>
+        <a href="#contact">お問い合わせ</a>
+      </div>
+    </nav>
+
+    <div class="hero">
+      <div class="hero-text reveal">
+        <p class="eyebrow">大阪市内を中心とした不動産会社</p>
+        <h1>翰林斉家株式会社</h1>
+        <p class="hero-lead">
+          大阪市内を中心に、不動産売買・賃貸仲介・不動産管理を行っています。
+          一つひとつのご相談に、落ち着いて丁寧に向き合います。
+        </p>
+        <ul class="credentials" aria-label="会社資格・所属団体">
+          <li>大阪府知事（1）第66017号</li>
+          <li>公益社団法人 全日本不動産協会 会員</li>
+          <li>公益社団法人 不動産保証協会 会員</li>
+          <li>大阪市内を中心とした不動産売買・賃貸仲介・不動産管理</li>
+        </ul>
+      </div>
+
+      <aside class="hero-card reveal" aria-label="会社連絡先">
+        <img src="logo.jpg" alt="翰林斉家株式会社" width="150" height="140" />
+        <dl>
+          <div>
+            <dt>所在地</dt>
+            <dd>〒540-0029 大阪市中央区本町橋6-21 シャンボール内本町302号室</dd>
+          </div>
+          <div>
+            <dt>TEL / FAX</dt>
+            <dd>06-7650-5103</dd>
+          </div>
+          <div>
+            <dt>メール</dt>
+            <dd><a href="mailto:hanlin@hanlin.jp">hanlin@hanlin.jp</a></dd>
+          </div>
+        </dl>
+      </aside>
+    </div>
   </header>
 
   <main>
-    <section>
-      <h2>会社紹介</h2>
-      <p>これは一人の中国人退職者がゼロから日本語を学び、5年かけて立ち上げた不動産会社の公式サイトです。</p>
-      <p>現在、このおじさんはシンプルな物件の売買・賃貸業務のみを行っています。複雑な案件は対応できません。理由は能力・体力・心構えが足りないからです。</p>
-      <p>「商売は叫ぶものではなく、築くもの。良いことをすれば、運も良くなる。」この信念を胸に、誠実な活動を心掛けています。</p>
+    <section id="services" class="section">
+      <div class="section-inner">
+        <p class="section-kicker reveal">Service</p>
+        <h2 class="reveal">業務内容</h2>
+        <p class="section-copy reveal">
+          ご相談内容を確認し、対応できる範囲を明確にしたうえで進めます。
+          必要に応じて専門家とも連携し、無理のない形でお手伝いします。
+        </p>
+
+        <div class="services">
+          <article class="service reveal">
+            <span class="service-number">01</span>
+            <h3>不動産売買</h3>
+            <p>大阪市内を中心に、住宅や小規模物件の売買相談を承ります。</p>
+            <p>価格、条件、手続きの流れを確認しながら、落ち着いて進められるようサポートします。</p>
+          </article>
+
+          <article class="service reveal">
+            <span class="service-number">02</span>
+            <h3>賃貸仲介</h3>
+            <p>住まい探しや店舗・事務所探しについて、希望条件を整理するところから対応します。</p>
+            <p>物件の特徴や契約条件を確認し、理解しやすい説明を心掛けています。</p>
+          </article>
+
+          <article class="service reveal">
+            <span class="service-number">03</span>
+            <h3>不動産管理</h3>
+            <p>賃貸物件の入居者対応、募集、契約まわりの管理についてご相談いただけます。</p>
+            <p>物件の状況を確認し、所有者様と相談しながら実務的な管理方法を考えます。</p>
+          </article>
+
+          <article class="service reveal">
+            <span class="service-number">04</span>
+            <h3>不動産投資・収益物件</h3>
+            <p>収益物件について、立地、賃料、管理状況など基本情報の確認をお手伝いします。</p>
+            <p>投資判断はリスクも含めて検討し、必要な情報を整理することを大切にしています。</p>
+          </article>
+
+          <article class="service reveal">
+            <span class="service-number">05</span>
+            <h3>在日生活サポート</h3>
+            <p>日本での住まい探しに慣れていない方にも、契約や生活に関する基本的な説明を行います。</p>
+            <p>言葉や手続きで不安がある場合も、できる範囲で丁寧にお手伝いします。</p>
+            <p>外国人向けの購入・賃貸ガイドは、微信サービス号「翰林斉家」でも紹介しています。</p>
+          </article>
+        </div>
+      </div>
     </section>
 
-    <section>
-      <h2>お問い合わせ</h2>
-      <ul>
-        <li>📧 メール：hanlin@hanlin.jp</li>
-        <li>📱 LINE ID：20220810miyazaki</li>
-        <li>📞 電話：06-7650-5103</li>
-      </ul>
+    <section id="about" class="section about">
+      <div class="section-inner about-grid">
+        <div>
+          <p class="section-kicker reveal">About</p>
+          <h2 class="reveal">私たちについて</h2>
+        </div>
+        <div class="about-text reveal">
+          <p>これは一人の中国人退職者がゼロから日本語を学び、5年かけて立ち上げた不動産会社の公式サイトです。</p>
+          <p>現在は、シンプルな物件の売買・賃貸業務を中心に行っています。複雑な案件については、内容を確認したうえで対応可否をお伝えします。</p>
+          <div class="about-note">
+            <p>「商売は叫ぶものではなく、築くもの。良いことをすれば、運も良くなる。」</p>
+            <p>この信念を胸に、誠実な活動を心掛けています。</p>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <section>
-      <h2>賃貸物件情報</h2>
-      <article>
-        <h3>???号室（岩本マンション）</h3>
-        <ul>
-          <li>住所：大阪市此花区春日出南2丁目7-34</li>
-          <li>間取り：1K（和室6帖）</li>
-          <li>専有面積：25㎡</li>
-          <li>賃料：52,000円／月</li>
-          <li>礼金・敷金：各52,000円</li>
-          <li>水道料金：3,000円／月</li>
-          <li>仲介手数料：無料</li>
-          <li>保証会社：不要</li>
-          <li>入居可能日：即日</li>
-        </ul>
-        <img src="/205.png" alt="205号室間取り図" style="width:300px;" />
-      </article>
+    <section id="properties" class="section properties">
+      <div class="section-inner">
+        <p class="section-kicker reveal">Property</p>
+        <h2 class="reveal">募集情報</h2>
+        <p class="section-copy reveal">
+          現在募集しているスペースの情報です。最新の状況や利用条件については、お問い合わせください。
+        </p>
 
-      <article>
-        <h3>???号室（岩本マンション）</h3>
-        <ul>
-          <li>住所：大阪市此花区春日出南2丁目7-34</li>
-          <li>間取り：1K（洋室6帖）</li>
-          <li>専有面積：23㎡</li>
-          <li>賃料：47,000円／月</li>
-          <li>礼金・敷金：各47,000円</li>
-          <li>水道料金：3,000円／月</li>
-          <li>仲介手数料：無料</li>
-          <li>保証会社：不要</li>
-          <li>入居可能日：即日</li>
+        <div class="property-list featured">
+          <article class="property featured reveal">
+            <div>
+              <p class="property-eyebrow">募集中 / 岩本マンション</p>
+              <h3>屋上スペース・外壁広告利用</h3>
+              <p class="property-lead">
+                大阪市此花区にある、約80㎡の屋上スペースです。
+                屋上だけでなく、建物の一面を活用できる外壁部分も特徴です。
+              </p>
+              <p class="property-lead">
+                スペースの利用、広告掲出、ブランドの露出、企画のスタート地点として、
+                用途を相談しながら検討できます。広さだけでなく、見せ方に工夫できる場所です。
+              </p>
+            </div>
+            <ul class="property-points" aria-label="屋上スペース募集条件">
+              <li>約80㎡の利用可能スペース</li>
+              <li>建物外壁を広告表示に活用可能</li>
+              <li>賃料：100,000円／月</li>
+              <li>契約期間：相談可</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="property-list archived-properties" hidden aria-hidden="true">
+          <article class="property archived">
+            <h3>205号室（岩本マンション）</h3>
+            <p class="property-eyebrow">満室 / 募集停止中</p>
+            <ul>
+              <li>住所：大阪市此花区春日出南2丁目7-34</li>
+              <li>間取り：1K（和室6帖）</li>
+              <li>専有面積：25㎡</li>
+              <li>賃料：52,000円／月</li>
+              <li>礼金・敷金：各52,000円</li>
+              <li>水道料金：3,000円／月</li>
+              <li>仲介手数料：無料</li>
+              <li>保証会社：不要</li>
+              <li>入居可能日：即日</li>
+            </ul>
+          </article>
+
+          <article class="property archived">
+            <h3>301号室（岩本マンション）</h3>
+            <p class="property-eyebrow">満室 / 募集停止中</p>
+            <ul>
+              <li>住所：大阪市此花区春日出南2丁目7-34</li>
+              <li>間取り：1K（洋室6帖）</li>
+              <li>専有面積：23㎡</li>
+              <li>賃料：47,000円／月</li>
+              <li>礼金・敷金：各47,000円</li>
+              <li>水道料金：3,000円／月</li>
+              <li>仲介手数料：無料</li>
+              <li>保証会社：不要</li>
+              <li>入居可能日：即日</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="section-inner">
+        <p class="section-kicker reveal">Contact</p>
+        <h2 class="reveal">お問い合わせ</h2>
+        <p class="section-copy reveal">
+          物件やご相談内容を簡単にお知らせください。確認後、対応可能な範囲でご連絡します。
+        </p>
+        <ul class="contact-list reveal">
+          <li>
+            <span>メール</span>
+            <a href="mailto:hanlin@hanlin.jp">hanlin@hanlin.jp</a>
+          </li>
+          <li>
+            <span>LINE ID</span>
+            20220810miyazaki
+          </li>
+          <li>
+            <span>微信サービス号</span>
+            翰林斉家
+          </li>
+          <li>
+            <span>電話</span>
+            <a href="tel:0676505103">06-7650-5103</a>
+          </li>
         </ul>
-        <img src="/301.png" alt="301号室間取り図" style="width:300px;" />
-      </article>
+      </div>
     </section>
   </main>
 
   <footer>
     <p>&copy; 2025 翰林齊家株式会社</p>
   </footer>
+
+  <script>
+    const revealItems = document.querySelectorAll(".reveal");
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.16 });
+
+    revealItems.forEach((item) => observer.observe(item));
+  </script>
 </body>
 </html>
