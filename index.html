@@ -105,6 +105,14 @@
       font-size: 0.92rem;
     }
 
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+      gap: 16px 22px;
+    }
+
     .nav-links a {
       text-decoration: none;
       padding-bottom: 4px;
@@ -115,6 +123,33 @@
     .nav-links a:hover {
       color: var(--accent-dark);
       border-color: var(--accent);
+    }
+
+    .language-switch {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .language-switch button {
+      appearance: none;
+      border: 1px solid rgba(95, 143, 122, 0.42);
+      background: rgba(255, 255, 255, 0.74);
+      color: var(--accent-dark);
+      cursor: pointer;
+      font: inherit;
+      font-size: 0.86rem;
+      font-weight: 700;
+      line-height: 1.2;
+      padding: 8px 12px;
+      transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .language-switch button:hover,
+    .language-switch button.is-active {
+      background: var(--accent-dark);
+      border-color: var(--accent-dark);
+      color: var(--white);
     }
 
     .hero {
@@ -478,6 +513,10 @@
         flex-direction: column;
       }
 
+      .nav-actions {
+        justify-content: flex-start;
+      }
+
       .nav-links {
         gap: 10px 14px;
       }
@@ -518,11 +557,17 @@
         <img src="logo.jpg" alt="翰林斉家株式会社ロゴ" width="56" height="56" />
         <span>翰林斉家株式会社</span>
       </div>
-      <div class="nav-links">
-        <a href="#services">業務内容</a>
-        <a href="#about">私たちについて</a>
-        <a href="#properties">物件情報</a>
-        <a href="#contact">お問い合わせ</a>
+      <div class="nav-actions">
+        <div class="nav-links">
+          <a href="#services">業務内容</a>
+          <a href="#about">私たちについて</a>
+          <a href="#properties">物件情報</a>
+          <a href="#contact">お問い合わせ</a>
+        </div>
+        <div class="language-switch" aria-label="Language switch">
+          <button type="button" data-language="zh-Hant" aria-pressed="false">中文繁体</button>
+          <button type="button" data-language="zh-Hans" aria-pressed="false">中文简体</button>
+        </div>
       </div>
     </nav>
 
@@ -714,7 +759,7 @@
           </li>
           <li>
             <span>微信サービス号</span>
-            翰林斉家
+            <b class="wechat-name">翰林斉家</b>
           </li>
           <li>
             <span>電話</span>
@@ -730,6 +775,193 @@
   </footer>
 
   <script>
+    const translations = {
+      "zh-Hant": {
+        lang: "zh-Hant",
+        title: "翰林齊家株式會社 - 大阪市內的不動產買賣、租賃仲介與管理",
+        description: "翰林齊家株式會社是一家以大阪市內為中心，提供不動產買賣、租賃仲介、不動產管理、投資收益物件及在日生活支援的不動產公司。",
+        text: {
+          ".brand span": "翰林齊家株式會社",
+          ".nav-links a[href='#services']": "業務內容",
+          ".nav-links a[href='#about']": "關於我們",
+          ".nav-links a[href='#properties']": "物件資訊",
+          ".nav-links a[href='#contact']": "聯絡我們",
+          ".eyebrow": "以大阪市內為中心的不動產公司",
+          "h1": "翰林齊家株式會社",
+          ".hero-lead": "我們以大阪市內為中心，提供不動產買賣、租賃仲介與不動產管理服務。對每一項諮詢，我們都會沉著、細緻地回應。",
+          ".credentials li:nth-child(1)": "大阪府知事（1）第66017號",
+          ".credentials li:nth-child(2)": "公益社團法人 全日本不動產協會 會員",
+          ".credentials li:nth-child(3)": "公益社團法人 不動產保證協會 會員",
+          ".credentials li:nth-child(4)": "以大阪市內為中心的不動產買賣、租賃仲介與不動產管理",
+          ".hero-card dl > div:nth-child(1) dt": "所在地",
+          ".hero-card dl > div:nth-child(1) dd": "〒540-0029 大阪市中央區本町橋6-21 Chambord 內本町302室",
+          ".hero-card dl > div:nth-child(3) dt": "電子郵件",
+          "#services h2": "業務內容",
+          "#services .section-copy": "我們會先確認您的諮詢內容，明確說明可協助的範圍後再推進。必要時也會與專業人士合作，以不勉強的方式提供支援。",
+          ".services .service:nth-child(1) h3": "不動產買賣",
+          ".services .service:nth-child(1) p:nth-of-type(1)": "以大阪市內為中心，承接住宅及小規模物件的買賣諮詢。",
+          ".services .service:nth-child(1) p:nth-of-type(2)": "我們會一邊確認價格、條件與手續流程，一邊協助您安心推進。",
+          ".services .service:nth-child(2) h3": "租賃仲介",
+          ".services .service:nth-child(2) p:nth-of-type(1)": "無論是尋找住家、店鋪或事務所，我們都會從整理希望條件開始協助。",
+          ".services .service:nth-child(2) p:nth-of-type(2)": "我們會確認物件特點與契約條件，並盡力提供容易理解的說明。",
+          ".services .service:nth-child(3) h3": "不動產管理",
+          ".services .service:nth-child(3) p:nth-of-type(1)": "可就租賃物件的住戶應對、募集及契約相關管理進行諮詢。",
+          ".services .service:nth-child(3) p:nth-of-type(2)": "我們會確認物件狀況，並與業主商量實務可行的管理方式。",
+          ".services .service:nth-child(4) h3": "不動產投資、收益物件",
+          ".services .service:nth-child(4) p:nth-of-type(1)": "針對收益物件，我們可協助確認地點、租金、管理狀況等基本資訊。",
+          ".services .service:nth-child(4) p:nth-of-type(2)": "投資判斷需連同風險一起檢討，我們重視協助整理必要資訊。",
+          ".services .service:nth-child(5) h3": "在日生活支援",
+          ".services .service:nth-child(5) p:nth-of-type(1)": "對於不熟悉日本找房流程的客戶，我們也會說明契約與生活相關的基本事項。",
+          ".services .service:nth-child(5) p:nth-of-type(2)": "若對語言或手續感到不安，我們會在可協助的範圍內細心支援。",
+          ".services .service:nth-child(5) p:nth-of-type(3)": "面向外國人的購買與租賃指南，也會在微信服務號「翰林齊家」介紹。",
+          "#about h2": "關於我們",
+          ".about-text > p:nth-of-type(1)": "這是一位中國退休人士從零開始學習日語，歷經5年創立的不動產公司官方網站。",
+          ".about-text > p:nth-of-type(2)": "目前主要從事簡單物件的買賣與租賃業務。較複雜的案件，我們會確認內容後告知是否能夠受理。",
+          ".about-note p:nth-child(1)": "「生意不是靠喊出來的，而是一步步建立起來的。做好事，運氣也會變好。」",
+          ".about-note p:nth-child(2)": "我們懷抱這份信念，致力於誠實經營。",
+          "#properties h2": "募集資訊",
+          "#properties .section-copy": "以下是目前正在募集的空間資訊。最新狀況及使用條件，請與我們聯絡確認。",
+          ".property.featured .property-eyebrow": "募集中 / 岩本公寓",
+          ".property.featured h3": "屋頂空間、外牆廣告使用",
+          ".property.featured .property-lead:nth-of-type(1)": "這是位於大阪市此花區、約80平方公尺的屋頂空間。不僅可使用屋頂，還可活用建物一側的外牆部分。",
+          ".property.featured .property-lead:nth-of-type(2)": "可作為空間使用、廣告刊登、品牌曝光或企劃起點，並可依用途一同討論。不只是面積，也是一處能在呈現方式上發揮巧思的場所。",
+          ".property-points li:nth-child(1)": "約80平方公尺可使用空間",
+          ".property-points li:nth-child(2)": "可將建物外牆用於廣告展示",
+          ".property-points li:nth-child(3)": "租金：100,000日圓／月",
+          ".property-points li:nth-child(4)": "契約期間：可商議",
+          ".archived-properties .property:nth-child(1) h3": "205號室（岩本公寓）",
+          ".archived-properties .property:nth-child(2) h3": "301號室（岩本公寓）",
+          ".archived-properties .property .property-eyebrow": "已滿室 / 暫停募集",
+          "#contact h2": "聯絡我們",
+          "#contact .section-copy": "請簡單告知物件或諮詢內容。確認後，我們會在可協助的範圍內與您聯絡。",
+          ".contact-list li:nth-child(1) span": "電子郵件",
+          ".contact-list li:nth-child(3) span": "微信服務號",
+          ".wechat-name": "翰林齊家",
+          ".contact-list li:nth-child(4) span": "電話",
+          "footer p": "© 2025 翰林齊家株式會社"
+        },
+        attrs: {
+          ".nav": { "aria-label": "主要導覽" },
+          ".brand img": { alt: "翰林齊家株式會社標誌" },
+          ".credentials": { "aria-label": "公司資格與所屬團體" },
+          ".hero-card": { "aria-label": "公司聯絡方式" },
+          ".hero-card img": { alt: "翰林齊家株式會社" },
+          ".property-points": { "aria-label": "屋頂空間募集條件" }
+        }
+      },
+      "zh-Hans": {
+        lang: "zh-Hans",
+        title: "翰林齐家株式会社 - 大阪市内的不动产买卖、租赁中介与管理",
+        description: "翰林齐家株式会社是一家以大阪市内为中心，提供不动产买卖、租赁中介、不动产管理、投资收益物件及在日生活支持的不动产公司。",
+        text: {
+          ".brand span": "翰林齐家株式会社",
+          ".nav-links a[href='#services']": "业务内容",
+          ".nav-links a[href='#about']": "关于我们",
+          ".nav-links a[href='#properties']": "物件信息",
+          ".nav-links a[href='#contact']": "联系我们",
+          ".eyebrow": "以大阪市内为中心的不动产公司",
+          "h1": "翰林齐家株式会社",
+          ".hero-lead": "我们以大阪市内为中心，提供不动产买卖、租赁中介与不动产管理服务。对每一项咨询，我们都会沉着、细致地回应。",
+          ".credentials li:nth-child(1)": "大阪府知事（1）第66017号",
+          ".credentials li:nth-child(2)": "公益社团法人 全日本不动产协会 会员",
+          ".credentials li:nth-child(3)": "公益社团法人 不动产保证协会 会员",
+          ".credentials li:nth-child(4)": "以大阪市内为中心的不动产买卖、租赁中介与不动产管理",
+          ".hero-card dl > div:nth-child(1) dt": "所在地",
+          ".hero-card dl > div:nth-child(1) dd": "〒540-0029 大阪市中央区本町桥6-21 Chambord 内本町302室",
+          ".hero-card dl > div:nth-child(3) dt": "电子邮箱",
+          "#services h2": "业务内容",
+          "#services .section-copy": "我们会先确认您的咨询内容，明确说明可协助的范围后再推进。必要时也会与专业人士合作，以不勉强的方式提供支持。",
+          ".services .service:nth-child(1) h3": "不动产买卖",
+          ".services .service:nth-child(1) p:nth-of-type(1)": "以大阪市内为中心，承接住宅及小规模物件的买卖咨询。",
+          ".services .service:nth-child(1) p:nth-of-type(2)": "我们会一边确认价格、条件与手续流程，一边协助您安心推进。",
+          ".services .service:nth-child(2) h3": "租赁中介",
+          ".services .service:nth-child(2) p:nth-of-type(1)": "无论是寻找住家、店铺或事务所，我们都会从整理希望条件开始协助。",
+          ".services .service:nth-child(2) p:nth-of-type(2)": "我们会确认物件特点与合同条件，并尽力提供容易理解的说明。",
+          ".services .service:nth-child(3) h3": "不动产管理",
+          ".services .service:nth-child(3) p:nth-of-type(1)": "可就租赁物件的住户应对、募集及合同相关管理进行咨询。",
+          ".services .service:nth-child(3) p:nth-of-type(2)": "我们会确认物件状况，并与业主商量实际可行的管理方式。",
+          ".services .service:nth-child(4) h3": "不动产投资、收益物件",
+          ".services .service:nth-child(4) p:nth-of-type(1)": "针对收益物件，我们可协助确认地点、租金、管理状况等基本信息。",
+          ".services .service:nth-child(4) p:nth-of-type(2)": "投资判断需连同风险一起讨论，我们重视协助整理必要信息。",
+          ".services .service:nth-child(5) h3": "在日生活支持",
+          ".services .service:nth-child(5) p:nth-of-type(1)": "对于不熟悉日本找房流程的客户，我们也会说明合同与生活相关的基本事项。",
+          ".services .service:nth-child(5) p:nth-of-type(2)": "若对语言或手续感到不安，我们会在可协助的范围内细心支持。",
+          ".services .service:nth-child(5) p:nth-of-type(3)": "面向外国人的购买与租赁指南，也会在微信服务号“翰林齐家”介绍。",
+          "#about h2": "关于我们",
+          ".about-text > p:nth-of-type(1)": "这是一位中国退休人士从零开始学习日语，历经5年创立的不动产公司官方网站。",
+          ".about-text > p:nth-of-type(2)": "目前主要从事简单物件的买卖与租赁业务。较复杂的案件，我们会确认内容后告知是否能够受理。",
+          ".about-note p:nth-child(1)": "“生意不是靠喊出来的，而是一步步建立起来的。做好事，运气也会变好。”",
+          ".about-note p:nth-child(2)": "我们怀抱这份信念，致力于诚信经营。",
+          "#properties h2": "募集信息",
+          "#properties .section-copy": "以下是目前正在募集的空间信息。最新状况及使用条件，请与我们联系确认。",
+          ".property.featured .property-eyebrow": "募集中 / 岩本公寓",
+          ".property.featured h3": "屋顶空间、外墙广告使用",
+          ".property.featured .property-lead:nth-of-type(1)": "这是位于大阪市此花区、约80平方米的屋顶空间。不仅可使用屋顶，还可活用建筑一侧的外墙部分。",
+          ".property.featured .property-lead:nth-of-type(2)": "可作为空间使用、广告刊登、品牌曝光或企划起点，并可依用途一同讨论。不只是面积，也是一处能在呈现方式上发挥巧思的场所。",
+          ".property-points li:nth-child(1)": "约80平方米可使用空间",
+          ".property-points li:nth-child(2)": "可将建筑外墙用于广告展示",
+          ".property-points li:nth-child(3)": "租金：100,000日元／月",
+          ".property-points li:nth-child(4)": "合同期间：可商议",
+          ".archived-properties .property:nth-child(1) h3": "205号室（岩本公寓）",
+          ".archived-properties .property:nth-child(2) h3": "301号室（岩本公寓）",
+          ".archived-properties .property .property-eyebrow": "已满室 / 暂停募集",
+          "#contact h2": "联系我们",
+          "#contact .section-copy": "请简单告知物件或咨询内容。确认后，我们会在可协助的范围内与您联系。",
+          ".contact-list li:nth-child(1) span": "电子邮箱",
+          ".contact-list li:nth-child(3) span": "微信服务号",
+          ".wechat-name": "翰林齐家",
+          ".contact-list li:nth-child(4) span": "电话",
+          "footer p": "© 2025 翰林齐家株式会社"
+        },
+        attrs: {
+          ".nav": { "aria-label": "主要导航" },
+          ".brand img": { alt: "翰林齐家株式会社标志" },
+          ".credentials": { "aria-label": "公司资格与所属团体" },
+          ".hero-card": { "aria-label": "公司联系方式" },
+          ".hero-card img": { alt: "翰林齐家株式会社" },
+          ".property-points": { "aria-label": "屋顶空间募集条件" }
+        }
+      }
+    };
+
+    const languageButtons = document.querySelectorAll("[data-language]");
+    const description = document.querySelector("meta[name='description']");
+
+    function applyLanguage(language) {
+      const translation = translations[language];
+      if (!translation) return;
+
+      document.documentElement.lang = translation.lang;
+      document.title = translation.title;
+      if (description) {
+        description.setAttribute("content", translation.description);
+      }
+
+      Object.entries(translation.text).forEach(([selector, value]) => {
+        document.querySelectorAll(selector).forEach((element) => {
+          element.textContent = value;
+        });
+      });
+
+      Object.entries(translation.attrs).forEach(([selector, attrs]) => {
+        document.querySelectorAll(selector).forEach((element) => {
+          Object.entries(attrs).forEach(([name, value]) => {
+            element.setAttribute(name, value);
+          });
+        });
+      });
+
+      languageButtons.forEach((button) => {
+        const isActive = button.dataset.language === language;
+        button.classList.toggle("is-active", isActive);
+        button.setAttribute("aria-pressed", String(isActive));
+      });
+    }
+
+    languageButtons.forEach((button) => {
+      button.addEventListener("click", () => applyLanguage(button.dataset.language));
+    });
+
     const revealItems = document.querySelectorAll(".reveal");
 
     const observer = new IntersectionObserver((entries) => {
