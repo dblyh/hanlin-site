@@ -253,6 +253,168 @@
       overflow: hidden;
     }
 
+    .content-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(240px, 280px);
+      gap: clamp(26px, 4vw, 46px);
+      align-items: start;
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 0 clamp(20px, 4vw, 56px);
+    }
+
+    .content-layout main {
+      min-width: 0;
+    }
+
+    .content-layout .section {
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    .content-layout .section-inner {
+      max-width: none;
+    }
+
+    .side-nav {
+      position: sticky;
+      top: 24px;
+      display: grid;
+      gap: 30px;
+      padding: 84px 0;
+      z-index: 1;
+    }
+
+    .side-contact {
+      padding: 18px 18px 16px;
+      color: var(--white);
+      background:
+        linear-gradient(135deg, rgba(31, 42, 46, 0.82), rgba(31, 42, 46, 0.7)),
+        var(--ink);
+      border: 1px solid rgba(255, 255, 255, 0.72);
+      box-shadow: 0 14px 30px rgba(31, 42, 46, 0.12);
+    }
+
+    .side-contact-label {
+      margin: 0;
+      font-size: 0.78rem;
+      font-weight: 700;
+      opacity: 0.82;
+    }
+
+    .side-contact a {
+      display: block;
+      margin-top: 2px;
+      color: var(--white);
+      font-size: 1.45rem;
+      font-weight: 800;
+      line-height: 1.2;
+      text-decoration: none;
+    }
+
+    .side-contact-note {
+      margin: 10px 0 0;
+      font-size: 0.82rem;
+      opacity: 0.86;
+    }
+
+    .side-menu h2 {
+      margin: 0 0 14px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--line);
+      color: #050a0c;
+      font-size: clamp(1.45rem, 2vw, 2rem);
+      line-height: 1.25;
+    }
+
+    .side-menu ul {
+      display: grid;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      border-top: 1px solid rgba(255, 255, 255, 0.44);
+    }
+
+    .side-menu a {
+      display: block;
+      padding: 12px 14px;
+      background: #30342d;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.36);
+      color: var(--white);
+      font-size: 0.92rem;
+      font-weight: 700;
+      text-align: center;
+      text-decoration: none;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    .side-menu a:hover {
+      background: var(--accent-dark);
+    }
+
+    .side-menu a.is-highlight {
+      background: #a8bf51;
+      color: var(--white);
+    }
+
+    .side-menu a.is-highlight:hover {
+      background: #8eaa3e;
+    }
+
+    .side-menu a.logo-link {
+      padding: 14px;
+      background: var(--white);
+    }
+
+    .side-menu a.logo-link:hover {
+      background: var(--soft);
+    }
+
+    .side-menu a.logo-link img {
+      width: min(100%, 226px);
+      margin: 0 auto;
+    }
+
+    .side-campaign {
+      min-height: 122px;
+      padding: 20px 18px;
+      display: grid;
+      align-content: center;
+      gap: 8px;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.95)),
+        linear-gradient(90deg, transparent 0 20%, rgba(95, 143, 122, 0.16) 20% 22%, transparent 22% 100%);
+      border: 1px solid var(--line);
+      box-shadow: 0 12px 28px rgba(31, 42, 46, 0.06);
+      text-decoration: none;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .side-campaign::after {
+      content: "";
+      width: 92%;
+      height: 10px;
+      position: absolute;
+      right: -10px;
+      bottom: 18px;
+      background: linear-gradient(90deg, rgba(95, 143, 122, 0.15), rgba(47, 102, 84, 0.72));
+    }
+
+    .side-campaign p {
+      margin: 0;
+      color: var(--ink);
+      font-size: 1.12rem;
+      font-weight: 800;
+      line-height: 1.35;
+    }
+
+    .side-campaign span {
+      color: var(--muted);
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+
     .section {
       padding: 84px clamp(20px, 5vw, 72px);
     }
@@ -494,8 +656,18 @@
 
     @media (max-width: 980px) {
       .hero,
-      .about-grid {
+      .about-grid,
+      .content-layout {
         grid-template-columns: 1fr;
+      }
+
+      .content-layout {
+        padding: 0 clamp(20px, 5vw, 72px);
+      }
+
+      .side-nav {
+        position: static;
+        padding-top: 0;
       }
 
       .services {
@@ -607,8 +779,9 @@
     </div>
   </header>
 
-  <main>
-    <section id="services" class="section">
+  <div class="content-layout">
+    <main>
+      <section id="services" class="section">
       <div class="section-inner">
         <p class="section-kicker reveal">Service</p>
         <h2 class="reveal">業務内容</h2>
@@ -741,34 +914,72 @@
       </div>
     </section>
 
-    <section id="contact" class="section">
-      <div class="section-inner">
-        <p class="section-kicker reveal">Contact</p>
-        <h2 class="reveal">お問い合わせ</h2>
-        <p class="section-copy reveal">
-          物件やご相談内容を簡単にお知らせください。確認後、対応可能な範囲でご連絡します。
-        </p>
-        <ul class="contact-list reveal">
+      <section id="contact" class="section">
+        <div class="section-inner">
+          <p class="section-kicker reveal">Contact</p>
+          <h2 class="reveal">お問い合わせ</h2>
+          <p class="section-copy reveal">
+            物件やご相談内容を簡単にお知らせください。確認後、対応可能な範囲でご連絡します。
+          </p>
+          <ul class="contact-list reveal">
+            <li>
+              <span>メール</span>
+              <a href="mailto:hanlin@hanlin.jp">hanlin@hanlin.jp</a>
+            </li>
+            <li>
+              <span>LINE ID</span>
+              20220810miyazaki
+            </li>
+            <li>
+              <span>微信サービス号</span>
+              <b class="wechat-name">翰林斉家</b>
+            </li>
+            <li>
+              <span>電話</span>
+              <a href="tel:0676505103">06-7650-5103</a>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <aside class="side-nav reveal" aria-label="不動産カテゴリーナビゲーション">
+      <div class="side-contact">
+        <p class="side-contact-label">TEL / FAX</p>
+        <a href="tel:0676505103">06-7650-5103</a>
+        <p class="side-contact-note">物件のご相談はお気軽にお問い合わせください</p>
+      </div>
+
+      <nav class="side-menu side-rent-menu" aria-label="賃貸物件カテゴリー">
+        <h2>賃貸物件</h2>
+        <ul>
+          <li><a href="#properties">貸家</a></li>
+          <li><a href="#properties">文化・アパート</a></li>
+          <li><a href="#properties">マンション</a></li>
+          <li><a href="#properties">店舗・倉庫</a></li>
+          <li><a href="#properties">駐車場</a></li>
+        </ul>
+      </nav>
+
+      <nav class="side-menu side-sale-menu" aria-label="売買物件カテゴリー">
+        <h2>売買物件</h2>
+        <ul>
+          <li><a class="is-highlight" href="#properties">売物件</a></li>
+          <li><a href="#properties">売土地</a></li>
           <li>
-            <span>メール</span>
-            <a href="mailto:hanlin@hanlin.jp">hanlin@hanlin.jp</a>
-          </li>
-          <li>
-            <span>LINE ID</span>
-            20220810miyazaki
-          </li>
-          <li>
-            <span>微信サービス号</span>
-            <b class="wechat-name">翰林斉家</b>
-          </li>
-          <li>
-            <span>電話</span>
-            <a href="tel:0676505103">06-7650-5103</a>
+            <a class="logo-link" href="https://mirai-toshi.co.jp/estate/data.php?c=search&amp;add_area%5B%5D=%E5%A4%A7%E9%98%AA%E5%BA%9C&amp;add_area%5B%5D=%E5%85%B5%E5%BA%AB%E7%9C%8C&amp;order_key=buy_cost&amp;order=ASC" target="_blank" rel="noopener noreferrer">
+              <img src="mirai-toshi-logo.png" alt="未来都市開発" width="289" height="82" />
+            </a>
           </li>
         </ul>
-      </div>
-    </section>
-  </main>
+      </nav>
+
+      <a class="side-campaign" href="#contact">
+        <p>キャンペーン実施中</p>
+        <span>詳しくはお問い合わせください</span>
+      </a>
+    </aside>
+  </div>
 
   <footer>
     <p>&copy; 2025 翰林齊家株式会社</p>
@@ -838,6 +1049,18 @@
           ".contact-list li:nth-child(3) span": "微信服務號",
           ".wechat-name": "翰林齊家",
           ".contact-list li:nth-child(4) span": "電話",
+          ".side-contact-note": "物件諮詢歡迎隨時與我們聯絡",
+          ".side-rent-menu h2": "租賃物件",
+          ".side-rent-menu li:nth-child(1) a": "出租住宅",
+          ".side-rent-menu li:nth-child(2) a": "木造公寓・公寓",
+          ".side-rent-menu li:nth-child(3) a": "大樓公寓",
+          ".side-rent-menu li:nth-child(4) a": "店鋪・倉庫",
+          ".side-rent-menu li:nth-child(5) a": "停車場",
+          ".side-sale-menu h2": "買賣物件",
+          ".side-sale-menu li:nth-child(1) a": "出售物件",
+          ".side-sale-menu li:nth-child(2) a": "出售土地",
+          ".side-campaign p": "活動進行中",
+          ".side-campaign span": "詳情請洽詢我們",
           "footer p": "© 2025 翰林齊家株式會社"
         },
         attrs: {
@@ -846,7 +1069,11 @@
           ".credentials": { "aria-label": "公司資格與所屬團體" },
           ".hero-card": { "aria-label": "公司聯絡方式" },
           ".hero-card img": { alt: "翰林齊家株式會社" },
-          ".property-points": { "aria-label": "屋頂空間募集條件" }
+          ".property-points": { "aria-label": "屋頂空間募集條件" },
+          ".side-nav": { "aria-label": "不動產分類導覽" },
+          ".side-rent-menu": { "aria-label": "租賃物件分類" },
+          ".side-sale-menu": { "aria-label": "買賣物件分類" },
+          ".side-sale-menu .logo-link img": { alt: "未來都市開發" }
         }
       },
       "zh-Hans": {
@@ -911,6 +1138,18 @@
           ".contact-list li:nth-child(3) span": "微信服务号",
           ".wechat-name": "翰林齐家",
           ".contact-list li:nth-child(4) span": "电话",
+          ".side-contact-note": "物件咨询欢迎随时与我们联系",
+          ".side-rent-menu h2": "租赁物件",
+          ".side-rent-menu li:nth-child(1) a": "出租住宅",
+          ".side-rent-menu li:nth-child(2) a": "木造公寓・公寓",
+          ".side-rent-menu li:nth-child(3) a": "大楼公寓",
+          ".side-rent-menu li:nth-child(4) a": "店铺・仓库",
+          ".side-rent-menu li:nth-child(5) a": "停车场",
+          ".side-sale-menu h2": "买卖物件",
+          ".side-sale-menu li:nth-child(1) a": "出售物件",
+          ".side-sale-menu li:nth-child(2) a": "出售土地",
+          ".side-campaign p": "活动进行中",
+          ".side-campaign span": "详情请咨询我们",
           "footer p": "© 2025 翰林齐家株式会社"
         },
         attrs: {
@@ -919,7 +1158,11 @@
           ".credentials": { "aria-label": "公司资格与所属团体" },
           ".hero-card": { "aria-label": "公司联系方式" },
           ".hero-card img": { alt: "翰林齐家株式会社" },
-          ".property-points": { "aria-label": "屋顶空间募集条件" }
+          ".property-points": { "aria-label": "屋顶空间募集条件" },
+          ".side-nav": { "aria-label": "不动产分类导航" },
+          ".side-rent-menu": { "aria-label": "租赁物件分类" },
+          ".side-sale-menu": { "aria-label": "买卖物件分类" },
+          ".side-sale-menu .logo-link img": { alt: "未来都市开发" }
         }
       }
     };
