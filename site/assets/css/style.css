@@ -472,9 +472,92 @@ body.is-locked { overflow: hidden; }
   right: 18px;
   width: 154px;
   display: grid;
-  gap: 12px;
+  gap: 8px;
   color: var(--washi);
   pointer-events: none;
+  user-select: none;
+  touch-action: none;
+  transition: width 0.28s var(--e-out), opacity 0.28s var(--e-out), filter 0.28s var(--e-out);
+}
+.resource-rail.is-dragging {
+  opacity: 0.9;
+  filter: drop-shadow(0 18px 38px rgba(0, 0, 0, 0.34));
+}
+.resource-tools {
+  display: flex;
+  gap: 6px;
+  align-items: stretch;
+  pointer-events: auto;
+}
+.resource-tools button {
+  appearance: none;
+  border: 1px solid rgba(242, 237, 227, 0.16);
+  background: rgba(16, 20, 27, 0.76);
+  color: var(--washi);
+  font: inherit;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.08em;
+  min-height: 32px;
+  transition: background 0.25s var(--e-out), color 0.25s var(--e-out), border-color 0.25s var(--e-out);
+}
+.resource-tools button:hover {
+  background: var(--shu);
+  border-color: var(--shu);
+}
+.resource-drag {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  cursor: grab;
+}
+.resource-drag:active { cursor: grabbing; }
+.resource-grip {
+  font-size: 14px;
+  letter-spacing: -0.22em;
+  transform: rotate(90deg);
+}
+.resource-toggle {
+  flex: 0 0 auto;
+  padding: 0 10px;
+}
+.resource-rail-body {
+  display: grid;
+  gap: 12px;
+  pointer-events: auto;
+  transform-origin: 100% 0;
+  transition: opacity 0.24s var(--e-out), transform 0.24s var(--e-out), visibility 0.24s var(--e-out);
+}
+.resource-rail.is-collapsed {
+  width: 58px;
+}
+.resource-rail.is-collapsed .resource-rail-body {
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(0.94);
+  pointer-events: none;
+  position: absolute;
+}
+.resource-rail.is-collapsed .resource-tools {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+.resource-rail.is-collapsed .resource-drag {
+  min-height: 28px;
+}
+.resource-rail.is-collapsed .resource-drag-label {
+  display: none;
+}
+.resource-rail.is-collapsed .resource-toggle {
+  width: 58px;
+  height: 58px;
+  padding: 0;
+  border-radius: 999px;
+  background: var(--shu);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.28);
 }
 .resource-block {
   overflow: hidden;
@@ -518,6 +601,14 @@ body.is-locked { overflow: hidden; }
 .resource-link--partner:hover {
   background: var(--washi);
   color: var(--shu-deep);
+}
+.resource-link--youtube {
+  background: rgba(154, 29, 25, 0.86);
+  color: var(--washi);
+}
+.resource-link--youtube:hover {
+  background: #c4302b;
+  color: var(--washi);
 }
 
 /* ============================================================

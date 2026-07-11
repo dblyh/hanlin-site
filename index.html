@@ -106,25 +106,37 @@
     </div>
   </div>
 
-  <aside class="resource-rail" aria-label="提携リンク">
-    <section class="resource-block">
-      <h2>提携物件</h2>
-      <a class="resource-link resource-link--partner" href="https://mirai-toshi.co.jp/estate/data.php?c=search&amp;add_area%5B%5D=%E5%A4%A7%E9%98%AA%E5%BA%9C&amp;add_area%5B%5D=%E5%85%B5%E5%BA%AB%E7%9C%8C&amp;order_key=buy_cost&amp;order=ASC" target="_blank" rel="noopener noreferrer" data-cursor="hover">
-        <span>未来都市開発</span>
-      </a>
-    </section>
-    <section class="resource-block">
-      <h2>微信服务号</h2>
-      <a class="resource-link" href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzk5MDMyMDEzOQ==&amp;action=getalbum&amp;album_id=4048760903205126151&amp;scene=126&amp;sessionid=1782787622450#wechat_redirect" target="_blank" rel="noopener noreferrer" data-cursor="hover">翰林+</a>
-      <a class="resource-link" href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzk5MDMyMDEzOQ==&amp;action=getalbum&amp;album_id=4023899665366958087&amp;scene=126&amp;sessionid=1782787659463#wechat_redirect" target="_blank" rel="noopener noreferrer" data-cursor="hover">翰林说房</a>
-      <a class="resource-link" href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzk5MDMyMDEzOQ==&amp;action=getalbum&amp;album_id=4023897646229012490&amp;scene=126&amp;sessionid=1782787945666#wechat_redirect" target="_blank" rel="noopener noreferrer" data-cursor="hover">物件精选</a>
-      <a class="resource-link" href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzk5MDMyMDEzOQ==&amp;action=getalbum&amp;album_id=4048762162754617361&amp;scene=126&amp;sessionid=1782787734324#wechat_redirect" target="_blank" rel="noopener noreferrer" data-cursor="hover">豆知识</a>
-      <a class="resource-link" href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzk5MDMyMDEzOQ==&amp;action=getalbum&amp;album_id=4023894734358626310&amp;scene=126&amp;sessionid=1782787768558#wechat_redirect" target="_blank" rel="noopener noreferrer" data-cursor="hover">术语速查</a>
-      <a class="resource-link" href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzk5MDMyMDEzOQ==&amp;action=getalbum&amp;album_id=4048858344034140160&amp;scene=126&amp;sessionid=1782787810812#wechat_redirect" target="_blank" rel="noopener noreferrer" data-cursor="hover">生活点滴</a>
-      <a class="resource-link" href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzk5MDMyMDEzOQ==&amp;action=getalbum&amp;album_id=4290617086096965634&amp;scene=126&amp;sessionid=1782787879776#wechat_redirect" target="_blank" rel="noopener noreferrer" data-cursor="hover">関西万博</a>
-      <a class="resource-link" href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzk5MDMyMDEzOQ==&amp;action=getalbum&amp;album_id=4290656389711790082&amp;scene=126&amp;sessionid=1782787844465#wechat_redirect" target="_blank" rel="noopener noreferrer" data-cursor="hover">跑步+</a>
-      <a class="resource-link" href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzk5MDMyMDEzOQ==&amp;action=getalbum&amp;album_id=4355842215575666711#wechat_redirect" target="_blank" rel="noopener noreferrer" data-cursor="hover">燕呢喃</a>
-    </section>
+  <aside class="resource-rail" id="resourceRail" aria-label="提携リンク">
+    <div class="resource-tools">
+      <button class="resource-drag" type="button" aria-label="右側リンクをドラッグして移動" title="ドラッグして移動">
+        <span class="resource-grip" aria-hidden="true">⋮⋮</span>
+        <span class="resource-drag-label">移動</span>
+      </button>
+      <button class="resource-toggle" type="button" aria-expanded="true" aria-controls="resourceRailBody" data-resource-toggle>折叠</button>
+    </div>
+    <div class="resource-rail-body" id="resourceRailBody">
+      <section class="resource-block">
+        <h2>外部リンク</h2>
+        <a class="resource-link resource-link--partner" href="https://mirai-toshi.co.jp/estate/data.php?c=search&amp;add_area%5B%5D=%E5%A4%A7%E9%98%AA%E5%BA%9C&amp;add_area%5B%5D=%E5%85%B5%E5%BA%AB%E7%9C%8C&amp;order_key=buy_cost&amp;order=ASC" target="_blank" rel="noopener noreferrer" data-cursor="hover">
+          <span>未来都市開発</span>
+        </a>
+        <a class="resource-link resource-link--youtube" href="https://www.youtube.com/@ninhao1379" target="_blank" rel="noopener noreferrer" data-cursor="hover">
+          <span>翰林斉家 YouTube</span>
+        </a>
+      </section>
+      <section class="resource-block">
+        <h2>微信服务号</h2>
+        <a class="resource-link" href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzk5MDMyMDEzOQ==&amp;action=getalbum&amp;album_id=4048760903205126151&amp;scene=126&amp;sessionid=1782787622450#wechat_redirect" target="_blank" rel="noopener noreferrer" data-cursor="hover">翰林+</a>
+        <a class="resource-link" href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzk5MDMyMDEzOQ==&amp;action=getalbum&amp;album_id=4023899665366958087&amp;scene=126&amp;sessionid=1782787659463#wechat_redirect" target="_blank" rel="noopener noreferrer" data-cursor="hover">翰林说房</a>
+        <a class="resource-link" href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzk5MDMyMDEzOQ==&amp;action=getalbum&amp;album_id=4023897646229012490&amp;scene=126&amp;sessionid=1782787945666#wechat_redirect" target="_blank" rel="noopener noreferrer" data-cursor="hover">物件精选</a>
+        <a class="resource-link" href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzk5MDMyMDEzOQ==&amp;action=getalbum&amp;album_id=4048762162754617361&amp;scene=126&amp;sessionid=1782787734324#wechat_redirect" target="_blank" rel="noopener noreferrer" data-cursor="hover">豆知识</a>
+        <a class="resource-link" href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzk5MDMyMDEzOQ==&amp;action=getalbum&amp;album_id=4023894734358626310&amp;scene=126&amp;sessionid=1782787768558#wechat_redirect" target="_blank" rel="noopener noreferrer" data-cursor="hover">术语速查</a>
+        <a class="resource-link" href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzk5MDMyMDEzOQ==&amp;action=getalbum&amp;album_id=4048858344034140160&amp;scene=126&amp;sessionid=1782787810812#wechat_redirect" target="_blank" rel="noopener noreferrer" data-cursor="hover">生活点滴</a>
+        <a class="resource-link" href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzk5MDMyMDEzOQ==&amp;action=getalbum&amp;album_id=4290617086096965634&amp;scene=126&amp;sessionid=1782787879776#wechat_redirect" target="_blank" rel="noopener noreferrer" data-cursor="hover">関西万博</a>
+        <a class="resource-link" href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzk5MDMyMDEzOQ==&amp;action=getalbum&amp;album_id=4290656389711790082&amp;scene=126&amp;sessionid=1782787844465#wechat_redirect" target="_blank" rel="noopener noreferrer" data-cursor="hover">跑步+</a>
+        <a class="resource-link" href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzk5MDMyMDEzOQ==&amp;action=getalbum&amp;album_id=4355842215575666711#wechat_redirect" target="_blank" rel="noopener noreferrer" data-cursor="hover">燕呢喃</a>
+      </section>
+    </div>
   </aside>
 
   <main id="top">
@@ -645,8 +657,9 @@
             ".footer-mark": "翰林齊家",
             ".footer-name": "翰林齊家株式會社<br /><i>HANLIN SAIKA CO., LTD.</i>",
             ".footer-base p:first-child": "© 2026 翰林齊家株式會社",
-            ".resource-rail .resource-block:first-child h2": "合作物件",
+            ".resource-rail .resource-block:first-child h2": "外部連結",
             ".resource-link--partner span": "未來都市開發",
+            ".resource-link--youtube span": "翰林齊家 YouTube",
             ".resource-rail .resource-block:nth-child(2) h2": "微信服務號"
           },
           html: {
@@ -734,8 +747,9 @@
             ".footer-mark": "翰林齐家",
             ".footer-name": "翰林齐家株式会社<br /><i>HANLIN SAIKA CO., LTD.</i>",
             ".footer-base p:first-child": "© 2026 翰林齐家株式会社",
-            ".resource-rail .resource-block:first-child h2": "合作物件",
+            ".resource-rail .resource-block:first-child h2": "外部链接",
             ".resource-link--partner span": "未来都市开发",
+            ".resource-link--youtube span": "翰林齐家 YouTube",
             ".resource-rail .resource-block:nth-child(2) h2": "微信服务号"
           },
           html: {
@@ -858,6 +872,105 @@
         button.setAttribute("aria-pressed", "false");
         button.addEventListener("click", () => applyLanguage(button.dataset.langButton));
       });
+    })();
+  </script>
+  <script>
+    (() => {
+      const rail = document.getElementById("resourceRail");
+      if (!rail) return;
+
+      const dragHandle = rail.querySelector(".resource-drag");
+      const toggle = rail.querySelector("[data-resource-toggle]");
+      const positionKey = "hanlinResourceRailPosition";
+      const collapsedKey = "hanlinResourceRailCollapsed";
+      let dragState = null;
+
+      const readStorage = (key) => {
+        try { return window.localStorage.getItem(key); }
+        catch (_) { return null; }
+      };
+      const writeStorage = (key, value) => {
+        try { window.localStorage.setItem(key, value); }
+        catch (_) {}
+      };
+      const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
+      const getBounds = () => {
+        const rect = rail.getBoundingClientRect();
+        return {
+          width: rect.width || 58,
+          height: rect.height || 58,
+          maxLeft: Math.max(8, window.innerWidth - (rect.width || 58) - 8),
+          maxTop: Math.max(74, window.innerHeight - (rect.height || 58) - 8)
+        };
+      };
+      const placeRail = (left, top) => {
+        const bounds = getBounds();
+        const nextLeft = clamp(left, 8, bounds.maxLeft);
+        const nextTop = clamp(top, 74, bounds.maxTop);
+        rail.style.left = `${Math.round(nextLeft)}px`;
+        rail.style.top = `${Math.round(nextTop)}px`;
+        rail.style.right = "auto";
+        return { left: Math.round(nextLeft), top: Math.round(nextTop) };
+      };
+      const saveCurrentPosition = () => {
+        const rect = rail.getBoundingClientRect();
+        const position = placeRail(rect.left, rect.top);
+        writeStorage(positionKey, JSON.stringify(position));
+      };
+      const setCollapsed = (collapsed) => {
+        rail.classList.toggle("is-collapsed", collapsed);
+        if (toggle) {
+          toggle.setAttribute("aria-expanded", String(!collapsed));
+          toggle.textContent = collapsed ? "展开" : "折叠";
+          toggle.setAttribute("aria-label", collapsed ? "展开右側リンク" : "折りたたむ右側リンク");
+        }
+        writeStorage(collapsedKey, collapsed ? "1" : "0");
+        requestAnimationFrame(saveCurrentPosition);
+      };
+
+      const savedPosition = readStorage(positionKey);
+      if (savedPosition) {
+        try {
+          const position = JSON.parse(savedPosition);
+          if (Number.isFinite(position.left) && Number.isFinite(position.top)) {
+            requestAnimationFrame(() => placeRail(position.left, position.top));
+          }
+        } catch (_) {}
+      }
+      setCollapsed(readStorage(collapsedKey) === "1");
+
+      if (toggle) {
+        toggle.addEventListener("click", () => {
+          setCollapsed(!rail.classList.contains("is-collapsed"));
+        });
+      }
+
+      if (dragHandle) {
+        dragHandle.addEventListener("pointerdown", (event) => {
+          if (event.button !== 0 && event.pointerType === "mouse") return;
+          const rect = rail.getBoundingClientRect();
+          dragState = {
+            pointerId: event.pointerId,
+            offsetX: event.clientX - rect.left,
+            offsetY: event.clientY - rect.top
+          };
+          rail.classList.add("is-dragging");
+          dragHandle.setPointerCapture?.(event.pointerId);
+          event.preventDefault();
+        });
+      }
+
+      window.addEventListener("pointermove", (event) => {
+        if (!dragState || event.pointerId !== dragState.pointerId) return;
+        placeRail(event.clientX - dragState.offsetX, event.clientY - dragState.offsetY);
+      });
+      window.addEventListener("pointerup", (event) => {
+        if (!dragState || event.pointerId !== dragState.pointerId) return;
+        dragState = null;
+        rail.classList.remove("is-dragging");
+        saveCurrentPosition();
+      });
+      window.addEventListener("resize", saveCurrentPosition);
     })();
   </script>
   <script type="module" src="/site/assets/js/city.js"></script>
