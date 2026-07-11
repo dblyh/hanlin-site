@@ -50,6 +50,9 @@
   <!-- ==================== NAV ==================== -->
   <header class="nav" id="nav" data-theme-now="dark">
     <a class="nav-brand" href="#top" data-cursor="hover">
+      <span class="brand-logo" aria-hidden="true">
+        <img src="/site/assets/img/hanlin-logo.png" alt="" />
+      </span>
       <span class="seal seal--mini" aria-hidden="true">
         <svg viewBox="0 0 64 64" role="img">
           <rect x="2" y="2" width="60" height="60" fill="none" stroke="currentColor" stroke-width="3"/>
@@ -73,6 +76,10 @@
     </nav>
     <div class="nav-side">
       <span class="nav-clock" aria-label="大阪の現在時刻">OSAKA <b id="clock">--:--</b> JST</span>
+      <div class="lang-switch" aria-label="中文表示切替">
+        <button type="button" data-lang-button="zh-Hant" data-cursor="hover">中文繁体</button>
+        <button type="button" data-lang-button="zh-Hans" data-cursor="hover">中文简体</button>
+      </div>
       <a class="btn btn--seal" href="#contact" data-magnetic data-cursor="hover"><span>ご相談</span></a>
     </div>
     <button class="nav-burger" id="navBurger" aria-label="メニューを開く" aria-controls="mnav" aria-expanded="false">
@@ -92,8 +99,33 @@
     <div class="mnav-foot">
       <a href="tel:0676505103">06-7650-5103</a>
       <a href="mailto:hanlin@hanlin.jp">hanlin@hanlin.jp</a>
+      <div class="lang-switch lang-switch--mobile" aria-label="中文表示切替">
+        <button type="button" data-lang-button="zh-Hant">中文繁体</button>
+        <button type="button" data-lang-button="zh-Hans">中文简体</button>
+      </div>
     </div>
   </div>
+
+  <aside class="resource-rail" aria-label="提携リンク">
+    <section class="resource-block">
+      <h2>提携物件</h2>
+      <a class="resource-link resource-link--partner" href="https://mirai-toshi.co.jp/estate/data.php?c=search&amp;add_area%5B%5D=%E5%A4%A7%E9%98%AA%E5%BA%9C&amp;add_area%5B%5D=%E5%85%B5%E5%BA%AB%E7%9C%8C&amp;order_key=buy_cost&amp;order=ASC" target="_blank" rel="noopener noreferrer" data-cursor="hover">
+        <span>未来都市開発</span>
+      </a>
+    </section>
+    <section class="resource-block">
+      <h2>微信服务号</h2>
+      <a class="resource-link" href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzk5MDMyMDEzOQ==&amp;action=getalbum&amp;album_id=4048760903205126151&amp;scene=126&amp;sessionid=1782787622450#wechat_redirect" target="_blank" rel="noopener noreferrer" data-cursor="hover">翰林+</a>
+      <a class="resource-link" href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzk5MDMyMDEzOQ==&amp;action=getalbum&amp;album_id=4023899665366958087&amp;scene=126&amp;sessionid=1782787659463#wechat_redirect" target="_blank" rel="noopener noreferrer" data-cursor="hover">翰林说房</a>
+      <a class="resource-link" href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzk5MDMyMDEzOQ==&amp;action=getalbum&amp;album_id=4023897646229012490&amp;scene=126&amp;sessionid=1782787945666#wechat_redirect" target="_blank" rel="noopener noreferrer" data-cursor="hover">物件精选</a>
+      <a class="resource-link" href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzk5MDMyMDEzOQ==&amp;action=getalbum&amp;album_id=4048762162754617361&amp;scene=126&amp;sessionid=1782787734324#wechat_redirect" target="_blank" rel="noopener noreferrer" data-cursor="hover">豆知识</a>
+      <a class="resource-link" href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzk5MDMyMDEzOQ==&amp;action=getalbum&amp;album_id=4023894734358626310&amp;scene=126&amp;sessionid=1782787768558#wechat_redirect" target="_blank" rel="noopener noreferrer" data-cursor="hover">术语速查</a>
+      <a class="resource-link" href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzk5MDMyMDEzOQ==&amp;action=getalbum&amp;album_id=4048858344034140160&amp;scene=126&amp;sessionid=1782787810812#wechat_redirect" target="_blank" rel="noopener noreferrer" data-cursor="hover">生活点滴</a>
+      <a class="resource-link" href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzk5MDMyMDEzOQ==&amp;action=getalbum&amp;album_id=4290617086096965634&amp;scene=126&amp;sessionid=1782787879776#wechat_redirect" target="_blank" rel="noopener noreferrer" data-cursor="hover">関西万博</a>
+      <a class="resource-link" href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzk5MDMyMDEzOQ==&amp;action=getalbum&amp;album_id=4290656389711790082&amp;scene=126&amp;sessionid=1782787844465#wechat_redirect" target="_blank" rel="noopener noreferrer" data-cursor="hover">跑步+</a>
+      <a class="resource-link" href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzk5MDMyMDEzOQ==&amp;action=getalbum&amp;album_id=4355842215575666711#wechat_redirect" target="_blank" rel="noopener noreferrer" data-cursor="hover">燕呢喃</a>
+    </section>
+  </aside>
 
   <main id="top">
 
@@ -540,6 +572,9 @@
       <div class="footer-mark" aria-hidden="true">翰林斉家</div>
       <div class="footer-grid">
         <div class="footer-col">
+          <span class="footer-logo" aria-hidden="true">
+            <img src="/site/assets/img/hanlin-logo.png" alt="" />
+          </span>
           <span class="seal seal--foot" aria-hidden="true">
             <svg viewBox="0 0 64 64">
               <rect x="2" y="2" width="60" height="60" fill="none" stroke="currentColor" stroke-width="3"/>
@@ -572,6 +607,259 @@
       </div>
   </footer>
 
+  <script>
+    (() => {
+      const dictionaries = {
+        "zh-Hant": {
+          title: "翰林齊家株式會社 — 買賣不是喧嘩，而是建立。｜大阪不動產",
+          description: "翰林齊家株式會社 — 以大阪市內為中心，提供不動產買賣、租賃仲介、不動產管理、投資物件提案與在日生活支援。",
+          text: {
+            ".skip": "跳至正文",
+            ".nav-brand-text b": "翰林齊家株式會社",
+            ".hero-eyebrow-jp": "大阪・中央區的不動產公司",
+            ".hero-lead": "在大阪這座城市，把人與人、人與住處的緣分穩穩連起來。<br />不動產買賣、租賃仲介、管理，這裡是翰林齊家株式會社。",
+            ".hero-vertical span": "翰林齊家株式會社 — 大阪・中央區",
+            ".section-head .section-jp": "理念",
+            ".philosophy .section-jp": "理念",
+            ".services .section-jp": "業務內容",
+            ".property .section-jp": "物件資訊",
+            ".osaka .section-jp": "大阪這座城市",
+            ".contact .section-jp": "諮詢聯絡",
+            ".services .section-note": "五項工作。每一項都不急躁，穩穩處理。",
+            ".osaka .section-note": "從走過、看過的街道開始。",
+            ".phil-quote-cap": "— 創業的信念",
+            ".prop-badge": "招租中 — NOW LEASING",
+            ".prop-title": "岩本公寓 屋頂空間與外牆廣告",
+            ".prop-lead": "大阪市此花區，約80坪的屋頂。靠近天空，也可把建築的一整面外牆作為展示。適合廣告、拍攝與企劃的起點。",
+            ".prop-note": "※ 205號室・301號室目前有人入住，暫停募集。空房預定請洽詢。",
+            ".prop-info .btn span": "詢問這個物件",
+            ".sv-cta-jp": "不知道該找哪個窗口時，<br />也請直接聯絡我們。",
+            ".sv-card--cta .btn span": "前往諮詢",
+            ".contact-lead": "物件、住處、日本生活上的事情。<br />再小的問題，也歡迎告訴我們。",
+            ".c-card:nth-child(2) .c-sub": "用 ID 搜尋加好友",
+            ".c-card:nth-child(3) .c-label": "WECHAT（微信）",
+            ".c-card:nth-child(3) .c-value": "翰林齊家",
+            ".c-card:nth-child(3) .c-sub": "以中文發信購屋與租屋指南",
+            ".c-card:nth-child(4) .c-sub": "用影片介紹大阪物件與生活",
+            ".contact-addr p": "〒540-0029 大阪市中央區本町橋6-21 Chambord 內本町302號室",
+            ".footer-mark": "翰林齊家",
+            ".footer-name": "翰林齊家株式會社<br /><i>HANLIN SAIKA CO., LTD.</i>",
+            ".footer-base p:first-child": "© 2026 翰林齊家株式會社",
+            ".resource-rail .resource-block:first-child h2": "合作物件",
+            ".resource-link--partner span": "未來都市開發",
+            ".resource-rail .resource-block:nth-child(2) h2": "微信服務號"
+          },
+          html: {
+            ".nav-links a:nth-child(1)": "<i>01</i>理念",
+            ".nav-links a:nth-child(2)": "<i>02</i>業務",
+            ".nav-links a:nth-child(3)": "<i>03</i>物件",
+            ".nav-links a:nth-child(4)": "<i>04</i>大阪",
+            ".nav-links a:nth-child(5)": "<i>05</i>聯絡",
+            ".mnav nav a:nth-child(1)": "<em>〇一</em>理念<i>Philosophy</i>",
+            ".mnav nav a:nth-child(2)": "<em>〇二</em>業務<i>Services</i>",
+            ".mnav nav a:nth-child(3)": "<em>〇三</em>物件<i>Property</i>",
+            ".mnav nav a:nth-child(4)": "<em>〇四</em>大阪<i>Osaka</i>",
+            ".mnav nav a:nth-child(5)": "<em>〇五</em>聯絡<i>Contact</i>",
+            ".nav-side .btn span": "諮詢",
+            ".footer-links a:nth-child(1)": "理念",
+            ".footer-links a:nth-child(2)": "業務",
+            ".footer-links a:nth-child(3)": "物件",
+            ".footer-links a:nth-child(4)": "大阪",
+            ".footer-links a:nth-child(5)": "聯絡",
+            ".footer-links .footer-guide": "製作幕後（中文）→"
+          },
+          services: ["不動產買賣", "租賃仲介", "不動產管理", "投資・收益物件", "在日生活支援"],
+          serviceDescriptions: [
+            "以大阪市內為中心，協助住宅與小規模物件買賣。價格、物件、手續流程，一起確認到能安心決定為止。",
+            "從整理希望條件，到看房與簽約。住宅、店鋪、事務所都會用容易理解的方式說明。",
+            "從入住應對、維修、簽約到日常管理，與屋主一起思考穩定、務實的管理方式。",
+            "整理地段、資料、管理狀況與風險，提供能判斷的材料，而不是只看表面的數字。",
+            "即使對語言與手續不安，也請放心。日本生活的開始，也能用中文商量。"
+          ],
+          heroTitleLines: ["買賣不是喧嘩，", "而是建立。"],
+          philosophyLines: ["花費五年的歲月，", "學習語言，走進街道，", "把信任一點一滴，", "累積起來。"],
+          philosophyCopy: [
+            "這是一位中國人在定居日本後，用五年時間從零開始學習日語，並在大阪創立的不動產公司。",
+            "現在，我們以物件買賣與租賃為中心，仔細聽取每一位客戶的情況，誠實說明可以做到的事，也誠實說明做不到的事。",
+            "我們沒有華麗的廣告，也沒有強勢的營業。真正重要的，是在您眼前的每一段緣分中，安靜而確實地面對。"
+          ],
+          quoteLines: ["買賣不是靠喊出來，", "而是靠信任建立起來。"],
+          contactLines: ["先從，", "聊一聊開始。"],
+          numbers: ["從日語零基礎到創業的歲月", "宅建業許可 大阪府知事（1）第66017號", "招租中的屋頂空間（此花區）", "日語與中文（簡體字・繁體字）對應"],
+          propertySpecs: [
+            ["所在地", "大阪市此花區春日出南"],
+            ["面積", "約80坪可使用空間"],
+            ["租金", "¥100,000 / 月"],
+            ["契約期間", "歡迎洽詢"]
+          ],
+          footerCred: [
+            "宅地建物取引業 大阪府知事（1）第66017號",
+            "（公社）全日本不動產協會 會員",
+            "（公社）不動產保證協會 會員",
+            "〒540-0029 大阪市中央區本町橋6-21 Chambord 內本町302號室"
+          ]
+        },
+        "zh-Hans": {
+          title: "翰林齐家株式会社 — 买卖不是喧哗，而是建立。｜大阪不动产",
+          description: "翰林齐家株式会社 — 以大阪市内为中心，提供不动产买卖、租赁中介、不动产管理、投资物件提案与在日生活支持。",
+          text: {
+            ".skip": "跳至正文",
+            ".nav-brand-text b": "翰林齐家株式会社",
+            ".hero-eyebrow-jp": "大阪・中央区的不动产公司",
+            ".hero-lead": "在大阪这座城市，把人与人、人与住处的缘分稳稳连起来。<br />不动产买卖、租赁中介、管理，这里是翰林齐家株式会社。",
+            ".hero-vertical span": "翰林齐家株式会社 — 大阪・中央区",
+            ".section-head .section-jp": "理念",
+            ".philosophy .section-jp": "理念",
+            ".services .section-jp": "业务内容",
+            ".property .section-jp": "物件信息",
+            ".osaka .section-jp": "大阪这座城市",
+            ".contact .section-jp": "咨询联系",
+            ".services .section-note": "五项工作。每一项都不急躁，稳稳处理。",
+            ".osaka .section-note": "从走过、看过的街道开始。",
+            ".phil-quote-cap": "— 创业的信念",
+            ".prop-badge": "招租中 — NOW LEASING",
+            ".prop-title": "岩本公寓 屋顶空间与外墙广告",
+            ".prop-lead": "大阪市此花区，约80坪的屋顶。靠近天空，也可把建筑的一整面外墙作为展示。适合广告、拍摄与企划的起点。",
+            ".prop-note": "※ 205号室・301号室目前有人入住，暂停募集。空房预定请咨询。",
+            ".prop-info .btn span": "询问这个物件",
+            ".sv-cta-jp": "不知道该找哪个窗口时，<br />也请直接联系我们。",
+            ".sv-card--cta .btn span": "前往咨询",
+            ".contact-lead": "物件、住处、日本生活上的事情。<br />再小的问题，也欢迎告诉我们。",
+            ".c-card:nth-child(2) .c-sub": "用 ID 搜索加好友",
+            ".c-card:nth-child(3) .c-label": "WECHAT（微信）",
+            ".c-card:nth-child(3) .c-value": "翰林齐家",
+            ".c-card:nth-child(3) .c-sub": "以中文发布购房与租房指南",
+            ".c-card:nth-child(4) .c-sub": "用视频介绍大阪物件与生活",
+            ".contact-addr p": "〒540-0029 大阪市中央区本町桥6-21 Chambord 内本町302号室",
+            ".footer-mark": "翰林齐家",
+            ".footer-name": "翰林齐家株式会社<br /><i>HANLIN SAIKA CO., LTD.</i>",
+            ".footer-base p:first-child": "© 2026 翰林齐家株式会社",
+            ".resource-rail .resource-block:first-child h2": "合作物件",
+            ".resource-link--partner span": "未来都市开发",
+            ".resource-rail .resource-block:nth-child(2) h2": "微信服务号"
+          },
+          html: {
+            ".nav-links a:nth-child(1)": "<i>01</i>理念",
+            ".nav-links a:nth-child(2)": "<i>02</i>业务",
+            ".nav-links a:nth-child(3)": "<i>03</i>物件",
+            ".nav-links a:nth-child(4)": "<i>04</i>大阪",
+            ".nav-links a:nth-child(5)": "<i>05</i>联系",
+            ".mnav nav a:nth-child(1)": "<em>〇一</em>理念<i>Philosophy</i>",
+            ".mnav nav a:nth-child(2)": "<em>〇二</em>业务<i>Services</i>",
+            ".mnav nav a:nth-child(3)": "<em>〇三</em>物件<i>Property</i>",
+            ".mnav nav a:nth-child(4)": "<em>〇四</em>大阪<i>Osaka</i>",
+            ".mnav nav a:nth-child(5)": "<em>〇五</em>联系<i>Contact</i>",
+            ".nav-side .btn span": "咨询",
+            ".footer-links a:nth-child(1)": "理念",
+            ".footer-links a:nth-child(2)": "业务",
+            ".footer-links a:nth-child(3)": "物件",
+            ".footer-links a:nth-child(4)": "大阪",
+            ".footer-links a:nth-child(5)": "联系",
+            ".footer-links .footer-guide": "制作幕后（中文）→"
+          },
+          services: ["不动产买卖", "租赁中介", "不动产管理", "投资・收益物件", "在日生活支持"],
+          serviceDescriptions: [
+            "以大阪市内为中心，协助住宅与小规模物件买卖。价格、物件、手续流程，一起确认到能安心决定为止。",
+            "从整理希望条件，到看房与签约。住宅、店铺、事务所都会用容易理解的方式说明。",
+            "从入住应对、维修、签约到日常管理，与房东一起思考稳定、务实的管理方式。",
+            "整理地段、资料、管理状况与风险，提供能判断的材料，而不是只看表面的数字。",
+            "即使对语言与手续不安，也请放心。日本生活的开始，也能用中文商量。"
+          ],
+          heroTitleLines: ["买卖不是喧哗，", "而是建立。"],
+          philosophyLines: ["花费五年的岁月，", "学习语言，走进街道，", "把信任一点一滴，", "积累起来。"],
+          philosophyCopy: [
+            "这是一位中国人在定居日本后，用五年时间从零开始学习日语，并在大阪创立的不动产公司。",
+            "现在，我们以物件买卖与租赁为中心，仔细听取每一位客户的情况，诚实说明可以做到的事，也诚实说明做不到的事。",
+            "我们没有华丽的广告，也没有强势的营业。真正重要的，是在您眼前的每一段缘分中，安静而确实地面对。"
+          ],
+          quoteLines: ["买卖不是靠喊出来，", "而是靠信任建立起来。"],
+          contactLines: ["先从，", "聊一聊开始。"],
+          numbers: ["从日语零基础到创业的岁月", "宅建业许可 大阪府知事（1）第66017号", "招租中的屋顶空间（此花区）", "日语与中文（简体字・繁体字）对应"],
+          propertySpecs: [
+            ["所在地", "大阪市此花区春日出南"],
+            ["面积", "约80坪可使用空间"],
+            ["租金", "¥100,000 / 月"],
+            ["契约期间", "欢迎咨询"]
+          ],
+          footerCred: [
+            "宅地建物取引业 大阪府知事（1）第66017号",
+            "（公社）全日本不动产协会 会员",
+            "（公社）不动产保证协会 会员",
+            "〒540-0029 大阪市中央区本町桥6-21 Chambord 内本町302号室"
+          ]
+        }
+      };
+
+      const setContent = (selector, value, asHtml = false) => {
+        document.querySelectorAll(selector).forEach((node) => {
+          if (asHtml) node.innerHTML = value;
+          else node.innerHTML = value;
+        });
+      };
+
+      const applyLanguage = (lang) => {
+        const dict = dictionaries[lang];
+        if (!dict) return;
+        document.documentElement.lang = lang;
+        document.title = dict.title;
+        const meta = document.querySelector('meta[name="description"]');
+        if (meta) meta.setAttribute("content", dict.description);
+
+        Object.entries(dict.text).forEach(([selector, value]) => setContent(selector, value));
+        Object.entries(dict.html).forEach(([selector, value]) => setContent(selector, value, true));
+
+        document.querySelectorAll(".sv-card:not(.sv-card--cta)").forEach((card, index) => {
+          const heading = card.querySelector("h3");
+          const copy = card.querySelector("p:not(.sv-en)");
+          if (heading && dict.services[index]) heading.textContent = dict.services[index];
+          if (copy && dict.serviceDescriptions[index]) copy.textContent = dict.serviceDescriptions[index];
+        });
+
+        document.querySelectorAll(".hero-title .ht-inner").forEach((line, index) => {
+          if (dict.heroTitleLines[index]) line.textContent = dict.heroTitleLines[index];
+        });
+        const heroTitle = document.querySelector(".hero-title");
+        if (heroTitle && dict.heroTitleLines) heroTitle.setAttribute("aria-label", dict.heroTitleLines.join(""));
+        document.querySelectorAll(".phil-statement .rl-inner").forEach((line, index) => {
+          if (dict.philosophyLines[index]) line.textContent = dict.philosophyLines[index];
+        });
+        document.querySelectorAll(".phil-copy p").forEach((paragraph, index) => {
+          if (dict.philosophyCopy[index]) paragraph.textContent = dict.philosophyCopy[index];
+        });
+        document.querySelectorAll(".phil-quote-vertical p").forEach((line, index) => {
+          if (dict.quoteLines[index]) line.textContent = dict.quoteLines[index];
+        });
+        document.querySelectorAll(".contact-big .rl-inner").forEach((line, index) => {
+          if (dict.contactLines[index]) line.textContent = dict.contactLines[index];
+        });
+        document.querySelectorAll(".num-cap").forEach((item, index) => {
+          if (dict.numbers[index]) item.textContent = dict.numbers[index];
+        });
+        document.querySelectorAll(".prop-specs > div").forEach((row, index) => {
+          if (!dict.propertySpecs[index]) return;
+          const [term, detail] = dict.propertySpecs[index];
+          const dt = row.querySelector("dt");
+          const dd = row.querySelector("dd");
+          if (dt) dt.textContent = term;
+          if (dd) dd.innerHTML = detail;
+        });
+        document.querySelectorAll(".footer-cred li").forEach((item, index) => {
+          if (dict.footerCred[index]) item.textContent = dict.footerCred[index];
+        });
+
+        document.querySelectorAll("[data-lang-button]").forEach((button) => {
+          const active = button.dataset.langButton === lang;
+          button.classList.toggle("is-active", active);
+          button.setAttribute("aria-pressed", String(active));
+        });
+      };
+
+      document.querySelectorAll("[data-lang-button]").forEach((button) => {
+        button.setAttribute("aria-pressed", "false");
+        button.addEventListener("click", () => applyLanguage(button.dataset.langButton));
+      });
+    })();
+  </script>
   <script type="module" src="/site/assets/js/city.js"></script>
   <script type="module" src="/site/assets/js/main.js"></script>
 </body>
