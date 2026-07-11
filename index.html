@@ -1,1529 +1,578 @@
-<!-- Hanlin Company Website -->
 <!DOCTYPE html>
 <html lang="ja">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta
-    name="description"
-    content="翰林斉家株式会社は、大阪市内を中心に不動産売買、賃貸仲介、不動産管理、投資・収益物件、在日生活サポートを行う不動産会社です。"
-  />
-  <title>翰林斉家株式会社 - 大阪市内の不動産売買・賃貸仲介・管理</title>
-  <style>
-    :root {
-      --ink: #1f2a2e;
-      --muted: #627074;
-      --line: #dfe7e4;
-      --paper: #fbfcfb;
-      --soft: #eef6f2;
-      --accent: #5f8f7a;
-      --accent-dark: #2f6654;
-      --white: #ffffff;
-      --shadow: 0 20px 45px rgba(31, 42, 46, 0.08);
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      color: var(--ink);
-      font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif;
-      line-height: 1.8;
-      background:
-        radial-gradient(circle at top left, rgba(95, 143, 122, 0.18), transparent 34rem),
-        linear-gradient(180deg, #f7fbf8 0%, var(--paper) 42%, #ffffff 100%);
-    }
-
-    img {
-      max-width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    a {
-      color: inherit;
-    }
-
-    .site-header {
-      min-height: 92vh;
-      padding: 32px clamp(20px, 5vw, 72px) 56px;
-      display: grid;
-      grid-template-rows: auto 1fr;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .site-header::after {
-      content: "";
-      width: 34rem;
-      height: 34rem;
-      border: 1px solid rgba(95, 143, 122, 0.18);
-      border-radius: 50%;
-      position: absolute;
-      right: -12rem;
-      top: 8rem;
-      animation: breathe 8s ease-in-out infinite;
-    }
-
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      font-weight: 700;
-      letter-spacing: 0;
-    }
-
-    .brand img {
-      width: 56px;
-      height: 56px;
-      object-fit: contain;
-      border-radius: 50%;
-      background: var(--white);
-      box-shadow: 0 8px 24px rgba(31, 42, 46, 0.1);
-    }
-
-    .nav-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 16px;
-      color: var(--muted);
-      font-size: 0.92rem;
-    }
-
-    .nav-actions {
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      flex-wrap: wrap;
-      gap: 16px 22px;
-    }
-
-    .nav-links a {
-      text-decoration: none;
-      padding-bottom: 4px;
-      border-bottom: 1px solid transparent;
-      transition: color 0.2s ease, border-color 0.2s ease;
-    }
-
-    .nav-links a:hover {
-      color: var(--accent-dark);
-      border-color: var(--accent);
-    }
-
-    .language-switch {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .language-switch button {
-      appearance: none;
-      border: 1px solid rgba(95, 143, 122, 0.42);
-      background: rgba(255, 255, 255, 0.74);
-      color: var(--accent-dark);
-      cursor: pointer;
-      font: inherit;
-      font-size: 0.86rem;
-      font-weight: 700;
-      line-height: 1.2;
-      padding: 8px 12px;
-      transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
-    }
-
-    .language-switch button:hover,
-    .language-switch button.is-active {
-      background: var(--accent-dark);
-      border-color: var(--accent-dark);
-      color: var(--white);
-    }
-
-    .hero {
-      align-self: center;
-      display: grid;
-      grid-template-columns: minmax(0, 1.25fr) minmax(280px, 0.75fr);
-      gap: clamp(32px, 6vw, 72px);
-      align-items: center;
-      position: relative;
-      z-index: 1;
-      padding-top: 44px;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      margin: 0 0 18px;
-      color: var(--accent-dark);
-      font-size: 0.9rem;
-      font-weight: 700;
-    }
-
-    .eyebrow::before {
-      content: "";
-      width: 36px;
-      height: 1px;
-      background: var(--accent);
-    }
-
-    h1 {
-      margin: 0;
-      font-size: clamp(2.4rem, 7vw, 5.5rem);
-      line-height: 1.08;
-      letter-spacing: 0;
-    }
-
-    .hero-lead {
-      max-width: 680px;
-      margin: 24px 0 0;
-      color: var(--muted);
-      font-size: clamp(1.02rem, 2vw, 1.25rem);
-    }
-
-    .credentials {
-      display: grid;
-      gap: 10px;
-      margin: 32px 0 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    .credentials li {
-      display: flex;
-      gap: 10px;
-      align-items: flex-start;
-      color: #344246;
-    }
-
-    .credentials li::before {
-      content: "";
-      flex: 0 0 7px;
-      width: 7px;
-      height: 7px;
-      margin-top: 12px;
-      border-radius: 50%;
-      background: var(--accent);
-    }
-
-    .hero-card {
-      background: rgba(255, 255, 255, 0.74);
-      border: 1px solid rgba(223, 231, 228, 0.9);
-      box-shadow: var(--shadow);
-      padding: 28px;
-      backdrop-filter: blur(16px);
-      animation: floatCard 5.5s ease-in-out infinite;
-    }
-
-    .hero-card img {
-      width: 150px;
-      margin: 0 auto 24px;
-    }
-
-    .hero-card dl {
-      margin: 0;
-      display: grid;
-      gap: 16px;
-    }
-
-    .hero-card dt {
-      color: var(--muted);
-      font-size: 0.82rem;
-    }
-
-    .hero-card dd {
-      margin: 2px 0 0;
-      font-weight: 700;
-    }
-
-    main {
-      overflow: hidden;
-    }
-
-    .content-layout {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(220px, 250px);
-      gap: clamp(22px, 3vw, 36px);
-      align-items: start;
-      max-width: 1320px;
-      margin: 0 auto;
-      padding: 0 clamp(20px, 4vw, 56px);
-    }
-
-    .content-layout main {
-      min-width: 0;
-    }
-
-    .content-layout .section {
-      padding-left: 0;
-      padding-right: 0;
-    }
-
-    .content-layout .section-inner {
-      max-width: none;
-    }
-
-    .side-nav {
-      position: sticky;
-      top: 24px;
-      display: grid;
-      gap: 24px;
-      padding: 84px 0;
-      z-index: 1;
-    }
-
-    .side-contact {
-      padding: 16px 14px 14px;
-      color: var(--white);
-      background:
-        linear-gradient(135deg, rgba(37, 91, 154, 0.96), rgba(74, 126, 186, 0.88)),
-        #2f6eae;
-      border: 1px solid rgba(202, 222, 247, 0.9);
-      box-shadow: 0 14px 30px rgba(37, 91, 154, 0.18);
-      overflow: visible;
-      position: relative;
-    }
-
-    .side-phone-line {
-      display: flex;
-      align-items: baseline;
-      gap: 6px;
-      white-space: nowrap;
-    }
-
-    .side-contact-label {
-      margin: 0;
-      font-size: 0.78rem;
-      font-weight: 700;
-      opacity: 0.82;
-    }
-
-    .side-phone-line a {
-      color: var(--white);
-      font-size: 1.32rem;
-      font-weight: 800;
-      line-height: 1.2;
-      text-decoration: none;
-    }
-
-    .business-hours {
-      display: grid;
-      grid-template-columns: repeat(7, minmax(0, 1fr));
-      width: 132px;
-      margin-top: 10px;
-      overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, 0.46);
-      background: #9ebde2;
-      color: #071522;
-      cursor: zoom-in;
-      text-align: center;
-      font-size: 0.5rem;
-      line-height: 1.25;
-      transform-origin: top right;
-      transition: box-shadow 0.2s ease, font-size 0.2s ease, transform 0.2s ease, width 0.2s ease;
-    }
-
-    .business-day {
-      min-width: 0;
-      display: grid;
-      grid-template-rows: 16px 34px;
-      border-right: 1px solid rgba(255, 255, 255, 0.36);
-    }
-
-    .business-day:last-child {
-      border-right: 0;
-    }
-
-    .business-day b,
-    .business-day span {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .business-day b {
-      color: #050a0c;
-      font-size: 0.56rem;
-      font-weight: 800;
-    }
-
-    .business-day span {
-      padding: 2px 1px;
-      white-space: pre-line;
-    }
-
-    .business-day.is-closed span {
-      background: #ff1616;
-      color: #050a0c;
-      font-weight: 800;
-    }
-
-    .business-day.is-open span {
-      background: #9bbbe2;
-    }
-
-    .business-day.is-sun b,
-    .business-day.is-tue b {
-      background: #ff1616;
-    }
-
-    .business-day.is-mon b,
-    .business-day.is-wed b {
-      background: #82aee0;
-    }
-
-    .business-day.is-thu b {
-      background: #5b91c9;
-    }
-
-    .business-day.is-fri b {
-      background: #fff100;
-    }
-
-    .business-day.is-sat b {
-      background: #c97912;
-    }
-
-    .business-hours:focus {
-      outline: 2px solid rgba(255, 255, 255, 0.78);
-      outline-offset: 3px;
-    }
-
-    .business-hours:hover,
-    .business-hours:focus {
-      width: 238px;
-      position: absolute;
-      top: 72px;
-      right: 14px;
-      z-index: 5;
-      box-shadow: 0 18px 38px rgba(0, 0, 0, 0.32);
-      cursor: zoom-out;
-      font-size: 0.82rem;
-      transform: translateX(8px);
-    }
-
-    .business-hours:hover .business-day,
-    .business-hours:focus .business-day {
-      grid-template-rows: 26px 76px;
-    }
-
-    .business-hours:hover .business-day b,
-    .business-hours:focus .business-day b {
-      font-size: 0.86rem;
-    }
-
-    .business-hours:hover + .side-contact-note,
-    .business-hours:focus + .side-contact-note {
-      margin-top: 62px;
-    }
-
-    .side-contact-note {
-      margin: 9px 0 0;
-      font-size: 0.78rem;
-      opacity: 0.86;
-    }
-
-    .side-contact a {
-      color: var(--white);
-    }
-
-    .side-menu h2 {
-      margin: 0 0 14px;
-      padding-bottom: 12px;
-      border-bottom: 1px solid var(--line);
-      color: #050a0c;
-      font-size: clamp(1.45rem, 2vw, 2rem);
-      line-height: 1.25;
-    }
-
-    .side-menu ul {
-      display: grid;
-      margin: 0;
-      padding: 0;
-      list-style: none;
-      border-top: 1px solid rgba(255, 255, 255, 0.44);
-    }
-
-    .side-menu a {
-      display: block;
-      padding: 12px 14px;
-      background: #6ea6d8;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.36);
-      color: #08243f;
-      font-size: 0.92rem;
-      font-weight: 700;
-      text-align: center;
-      text-decoration: none;
-      transition: background 0.2s ease, color 0.2s ease;
-    }
-
-    .side-menu li:nth-child(2) a {
-      background: #5f9bd0;
-      color: #08243f;
-    }
-
-    .side-menu li:nth-child(3) a {
-      background: #4e8fc7;
-      color: var(--white);
-    }
-
-    .side-menu li:nth-child(4) a {
-      background: #3f82bd;
-      color: var(--white);
-    }
-
-    .side-menu li:nth-child(5) a {
-      background: #3376b4;
-      color: var(--white);
-    }
-
-    .side-menu li:nth-child(n+6) a {
-      background: #2a69a8;
-      color: var(--white);
-    }
-
-    .side-menu li:nth-child(n+8) a {
-      background: #245d99;
-      color: var(--white);
-    }
-
-    .side-menu a:hover {
-      background: #1f548a;
-      color: var(--white);
-    }
-
-    .side-menu a.is-highlight {
-      background: #6ea6d8;
-      color: #08243f;
-    }
-
-    .side-menu a.is-highlight:hover {
-      background: #1f548a;
-      color: var(--white);
-    }
-
-    .side-wechat-menu a {
-      padding-top: 10px;
-      padding-bottom: 10px;
-    }
-
-    .side-youtube-menu a {
-      color: #d61f1f;
-    }
-
-    .side-youtube-menu a:hover {
-      color: var(--white);
-    }
-
-    .side-menu a.logo-link {
-      padding: 14px;
-      background: var(--white);
-    }
-
-    .side-menu li a.logo-link {
-      background: var(--white);
-    }
-
-    .side-menu a.logo-link:hover {
-      background: #edf5ff;
-    }
-
-    .side-menu a.logo-link img {
-      width: min(100%, 226px);
-      margin: 0 auto;
-    }
-
-    .side-campaign {
-      min-height: 122px;
-      padding: 20px 18px;
-      display: grid;
-      align-content: center;
-      gap: 8px;
-      background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.95)),
-        linear-gradient(90deg, transparent 0 20%, rgba(74, 126, 186, 0.18) 20% 22%, transparent 22% 100%);
-      border: 1px solid #cfe0f2;
-      box-shadow: 0 12px 28px rgba(37, 91, 154, 0.08);
-      text-decoration: none;
-      overflow: hidden;
-      position: relative;
-    }
-
-    .side-campaign::after {
-      content: "";
-      width: 92%;
-      height: 10px;
-      position: absolute;
-      right: -10px;
-      bottom: 18px;
-      background: linear-gradient(90deg, rgba(115, 168, 220, 0.18), rgba(47, 110, 174, 0.72));
-    }
-
-    .side-campaign p {
-      margin: 0;
-      color: var(--ink);
-      font-size: 1.12rem;
-      font-weight: 800;
-      line-height: 1.35;
-    }
-
-    .side-campaign span {
-      color: var(--muted);
-      font-size: 0.82rem;
-      font-weight: 700;
-    }
-
-    .section {
-      padding: 84px clamp(20px, 5vw, 72px);
-    }
-
-    .section-inner {
-      max-width: 1120px;
-      margin: 0 auto;
-    }
-
-    .section-kicker {
-      margin: 0 0 8px;
-      color: var(--accent-dark);
-      font-size: 0.88rem;
-      font-weight: 700;
-    }
-
-    h2 {
-      margin: 0 0 22px;
-      font-size: clamp(1.7rem, 4vw, 3rem);
-      line-height: 1.25;
-      letter-spacing: 0;
-    }
-
-    .section-copy {
-      max-width: 780px;
-      margin: 0;
-      color: var(--muted);
-    }
-
-    .services {
-      display: grid;
-      grid-template-columns: repeat(5, minmax(0, 1fr));
-      gap: 16px;
-      margin-top: 40px;
-    }
-
-    .service {
-      min-height: 290px;
-      padding: 24px;
-      border: 1px solid var(--line);
-      background: rgba(255, 255, 255, 0.82);
-      box-shadow: 0 12px 28px rgba(31, 42, 46, 0.05);
-      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
-    }
-
-    .service:hover {
-      transform: translateY(-6px);
-      border-color: rgba(95, 143, 122, 0.5);
-      box-shadow: var(--shadow);
-    }
-
-    .service-number {
-      color: var(--accent);
-      font-size: 0.82rem;
-      font-weight: 700;
-    }
-
-    .service h3 {
-      margin: 16px 0 14px;
-      font-size: 1.18rem;
-      line-height: 1.45;
-    }
-
-    .service p {
-      margin: 0 0 12px;
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    .about {
-      background: var(--soft);
-    }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-      gap: clamp(28px, 6vw, 72px);
-      align-items: start;
-    }
-
-    .about-note {
-      padding: 28px;
-      background: var(--white);
-      border-left: 4px solid var(--accent);
-      box-shadow: 0 14px 32px rgba(31, 42, 46, 0.06);
-    }
-
-    .about-note p,
-    .about-text p {
-      margin: 0 0 16px;
-      color: var(--muted);
-    }
-
-    .about-text p:last-child,
-    .about-note p:last-child {
-      margin-bottom: 0;
-    }
-
-    .contact-list {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 16px;
-      margin-top: 34px;
-      padding: 0;
-      list-style: none;
-    }
-
-    .contact-list li {
-      padding: 22px;
-      background: var(--white);
-      border: 1px solid var(--line);
-    }
-
-    .contact-list span {
-      display: block;
-      color: var(--muted);
-      font-size: 0.86rem;
-      margin-bottom: 6px;
-    }
-
-    .properties {
-      background: #ffffff;
-    }
-
-    .property-list {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 18px;
-      margin-top: 34px;
-    }
-
-    .property-list.featured {
-      grid-template-columns: 1fr;
-    }
-
-    .property {
-      border: 1px solid var(--line);
-      padding: 24px;
-      background: var(--paper);
-    }
-
-    .property.featured {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(260px, 0.55fr);
-      gap: 26px;
-      align-items: start;
-      background:
-        linear-gradient(135deg, rgba(238, 246, 242, 0.92), rgba(255, 255, 255, 0.96)),
-        var(--white);
-      border-color: rgba(95, 143, 122, 0.28);
-      box-shadow: var(--shadow);
-    }
-
-    .property h3 {
-      margin: 0 0 14px;
-      font-size: 1.12rem;
-    }
-
-    .property-eyebrow {
-      margin: 0 0 8px;
-      color: var(--accent-dark);
-      font-size: 0.84rem;
-      font-weight: 700;
-    }
-
-    .property-lead {
-      margin: 0 0 18px;
-      color: var(--muted);
-    }
-
-    .property-points {
-      display: grid;
-      gap: 12px;
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    .property-points li {
-      padding: 13px 14px;
-      background: rgba(255, 255, 255, 0.72);
-      border: 1px solid rgba(223, 231, 228, 0.9);
-      color: #344246;
-      font-weight: 700;
-    }
-
-    .property.archived {
-      display: none;
-    }
-
-    .property ul {
-      margin: 0;
-      padding-left: 1.2rem;
-      color: var(--muted);
-    }
-
-    footer {
-      padding: 30px clamp(20px, 5vw, 72px);
-      color: var(--muted);
-      border-top: 1px solid var(--line);
-      background: var(--white);
-    }
-
-    footer p {
-      max-width: 1120px;
-      margin: 0 auto;
-    }
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
-
-    .reveal.is-visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    @keyframes breathe {
-      0%, 100% {
-        transform: scale(1);
-        opacity: 0.55;
-      }
-      50% {
-        transform: scale(1.04);
-        opacity: 0.85;
-      }
-    }
-
-    @keyframes floatCard {
-      0%, 100% {
-        transform: translateY(0);
-      }
-      50% {
-        transform: translateY(-10px);
-      }
-    }
-
-    @media (max-width: 980px) {
-      .hero,
-      .about-grid,
-      .content-layout {
-        grid-template-columns: 1fr;
-      }
-
-      .content-layout {
-        padding: 0 clamp(20px, 5vw, 72px);
-      }
-
-      .side-nav {
-        position: static;
-        padding-top: 0;
-      }
-
-      .business-hours,
-      .business-hours:hover,
-      .business-hours:focus {
-        width: 100%;
-        position: static;
-        box-shadow: none;
-        cursor: default;
-        font-size: 0.72rem;
-        transform: none;
-      }
-
-      .business-hours:hover .business-day,
-      .business-hours:focus .business-day {
-        grid-template-rows: 24px 62px;
-      }
-
-      .business-hours:hover .business-day b,
-      .business-hours:focus .business-day b {
-        font-size: 0.8rem;
-      }
-
-      .business-hours:hover + .side-contact-note,
-      .business-hours:focus + .side-contact-note {
-        margin-top: 9px;
-      }
-
-      .services {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
-
-    @media (max-width: 720px) {
-      .site-header {
-        min-height: auto;
-      }
-
-      .nav {
-        align-items: flex-start;
-        flex-direction: column;
-      }
-
-      .nav-actions {
-        justify-content: flex-start;
-      }
-
-      .nav-links {
-        gap: 10px 14px;
-      }
-
-      .services,
-      .contact-list,
-      .property-list,
-      .property.featured {
-        grid-template-columns: 1fr;
-      }
-
-      .section {
-        padding-top: 64px;
-        padding-bottom: 64px;
-      }
-
-      .hero-card {
-        animation: none;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *,
-      *::before,
-      *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        scroll-behavior: auto !important;
-        transition-duration: 0.01ms !important;
-      }
-    }
-  </style>
+  <meta name="description" content="翰林斉家株式会社 — 大阪市内を中心に、不動産売買・賃貸仲介・不動産管理・投資用物件のご提案・在日生活サポートを行う不動産会社。商いは、叫ばず、築くもの。" />
+  <meta name="theme-color" content="#0b0e13" />
+  <title>翰林斉家株式会社 — 商いは、叫ばず、築くもの。｜大阪の不動産</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@400;500;600;700;800&family=Zen+Kaku+Gothic+New:wght@300;400;500;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="/site/assets/css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23d8442e'/%3E%3Ctext x='32' y='36' font-family='serif' font-weight='700' font-size='40' fill='%23f2ede3' text-anchor='middle' dominant-baseline='central'%3E翰%3C/text%3E%3C/svg%3E" />
+  <script type="importmap">
+    { "imports": { "three": "/vendor/three.module.js" } }
+  </script>
+  <link rel="modulepreload" href="/site/vendor/three.module.js" />
+  <link rel="modulepreload" href="/site/assets/js/city.js" />
+  <script>document.documentElement.classList.add("js");</script>
 </head>
-<body>
-  <header class="site-header">
-    <nav class="nav" aria-label="主要ナビゲーション">
-      <div class="brand">
-        <img src="logo.jpg" alt="翰林斉家株式会社ロゴ" width="56" height="56" />
-        <span>翰林斉家株式会社</span>
-      </div>
-      <div class="nav-actions">
-        <div class="nav-links">
-          <a href="#services">業務内容</a>
-          <a href="#about">私たちについて</a>
-          <a href="#properties">物件情報</a>
-          <a href="#contact">お問い合わせ</a>
-        </div>
-        <div class="language-switch" aria-label="Language switch">
-          <button type="button" data-language="zh-Hant" aria-pressed="false">中文繁体</button>
-          <button type="button" data-language="zh-Hans" aria-pressed="false">中文简体</button>
-        </div>
-      </div>
-    </nav>
+<body data-page="home">
+  <a class="skip" href="#top">本文へスキップ</a>
 
-    <div class="hero">
-      <div class="hero-text reveal">
-        <p class="eyebrow">大阪市内を中心とした不動産会社</p>
-        <h1>翰林斉家株式会社</h1>
-        <p class="hero-lead">
-          大阪市内を中心に、不動産売買・賃貸仲介・不動産管理を行っています。
-          一つひとつのご相談に、落ち着いて丁寧に向き合います。
-        </p>
-        <ul class="credentials" aria-label="会社資格・所属団体">
-          <li>大阪府知事（1）第66017号</li>
-          <li>公益社団法人 全日本不動産協会 会員</li>
-          <li>公益社団法人 不動産保証協会 会員</li>
-          <li>大阪市内を中心とした不動産売買・賃貸仲介・不動産管理</li>
-        </ul>
+  <!-- ==================== PRELOADER ==================== -->
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader-panel loader-panel--ink"></div>
+    <div class="loader-core">
+      <div class="loader-kanji"><span class="loader-kanji-fill">築</span><span class="loader-kanji-ghost">築</span></div>
+      <div class="loader-meta">
+        <span class="loader-word">HANLIN SAIKA — OSAKA</span>
+        <span class="loader-count" id="loaderCount">000</span>
       </div>
-
-      <aside class="hero-card reveal" aria-label="会社連絡先">
-        <img src="logo.jpg" alt="翰林斉家株式会社" width="150" height="140" />
-        <dl>
-          <div>
-            <dt>所在地</dt>
-            <dd>〒540-0029 大阪市中央区本町橋6-21 シャンボール内本町302号室</dd>
-          </div>
-          <div>
-            <dt>TEL / FAX</dt>
-            <dd>06-7650-5103</dd>
-          </div>
-          <div>
-            <dt>メール</dt>
-            <dd><a href="mailto:hanlin@hanlin.jp">hanlin@hanlin.jp</a></dd>
-          </div>
-        </dl>
-      </aside>
     </div>
-  </header>
-
-  <div class="content-layout">
-    <main>
-      <section id="services" class="section">
-      <div class="section-inner">
-        <p class="section-kicker reveal">Service</p>
-        <h2 class="reveal">業務内容</h2>
-        <p class="section-copy reveal">
-          ご相談内容を確認し、対応できる範囲を明確にしたうえで進めます。
-          必要に応じて専門家とも連携し、無理のない形でお手伝いします。
-        </p>
-
-        <div class="services">
-          <article class="service reveal">
-            <span class="service-number">01</span>
-            <h3>不動産売買</h3>
-            <p>大阪市内を中心に、住宅や小規模物件の売買相談を承ります。</p>
-            <p>価格、条件、手続きの流れを確認しながら、落ち着いて進められるようサポートします。</p>
-          </article>
-
-          <article class="service reveal">
-            <span class="service-number">02</span>
-            <h3>賃貸仲介</h3>
-            <p>住まい探しや店舗・事務所探しについて、希望条件を整理するところから対応します。</p>
-            <p>物件の特徴や契約条件を確認し、理解しやすい説明を心掛けています。</p>
-          </article>
-
-          <article class="service reveal">
-            <span class="service-number">03</span>
-            <h3>不動産管理</h3>
-            <p>賃貸物件の入居者対応、募集、契約まわりの管理についてご相談いただけます。</p>
-            <p>物件の状況を確認し、所有者様と相談しながら実務的な管理方法を考えます。</p>
-          </article>
-
-          <article class="service reveal">
-            <span class="service-number">04</span>
-            <h3>不動産投資・収益物件</h3>
-            <p>収益物件について、立地、賃料、管理状況など基本情報の確認をお手伝いします。</p>
-            <p>投資判断はリスクも含めて検討し、必要な情報を整理することを大切にしています。</p>
-          </article>
-
-          <article class="service reveal">
-            <span class="service-number">05</span>
-            <h3>在日生活サポート</h3>
-            <p>日本での住まい探しに慣れていない方にも、契約や生活に関する基本的な説明を行います。</p>
-            <p>言葉や手続きで不安がある場合も、できる範囲で丁寧にお手伝いします。</p>
-            <p>外国人向けの購入・賃貸ガイドは、微信サービス号「翰林斉家」でも紹介しています。</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="about" class="section about">
-      <div class="section-inner about-grid">
-        <div>
-          <p class="section-kicker reveal">About</p>
-          <h2 class="reveal">私たちについて</h2>
-        </div>
-        <div class="about-text reveal">
-          <p>これは一人の中国人退職者がゼロから日本語を学び、5年かけて立ち上げた不動産会社の公式サイトです。</p>
-          <p>現在は、シンプルな物件の売買・賃貸業務を中心に行っています。複雑な案件については、内容を確認したうえで対応可否をお伝えします。</p>
-          <div class="about-note">
-            <p>「商売は叫ぶものではなく、築くもの。良いことをすれば、運も良くなる。」</p>
-            <p>この信念を胸に、誠実な活動を心掛けています。</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="properties" class="section properties">
-      <div class="section-inner">
-        <p class="section-kicker reveal">Property</p>
-        <h2 class="reveal">募集情報</h2>
-        <p class="section-copy reveal">
-          現在募集しているスペースの情報です。最新の状況や利用条件については、お問い合わせください。
-        </p>
-
-        <div class="property-list featured">
-          <article class="property featured reveal">
-            <div>
-              <p class="property-eyebrow">募集中 / 岩本マンション</p>
-              <h3>屋上スペース・外壁広告利用</h3>
-              <p class="property-lead">
-                大阪市此花区にある、約80㎡の屋上スペースです。
-                屋上だけでなく、建物の一面を活用できる外壁部分も特徴です。
-              </p>
-              <p class="property-lead">
-                スペースの利用、広告掲出、ブランドの露出、企画のスタート地点として、
-                用途を相談しながら検討できます。広さだけでなく、見せ方に工夫できる場所です。
-              </p>
-            </div>
-            <ul class="property-points" aria-label="屋上スペース募集条件">
-              <li>約80㎡の利用可能スペース</li>
-              <li>建物外壁を広告表示に活用可能</li>
-              <li>賃料：100,000円／月</li>
-              <li>契約期間：相談可</li>
-            </ul>
-          </article>
-        </div>
-
-        <div class="property-list archived-properties" hidden aria-hidden="true">
-          <article class="property archived">
-            <h3>205号室（岩本マンション）</h3>
-            <p class="property-eyebrow">満室 / 募集停止中</p>
-            <ul>
-              <li>住所：大阪市此花区春日出南2丁目7-34</li>
-              <li>間取り：1K（和室6帖）</li>
-              <li>専有面積：25㎡</li>
-              <li>賃料：52,000円／月</li>
-              <li>礼金・敷金：各52,000円</li>
-              <li>水道料金：3,000円／月</li>
-              <li>仲介手数料：無料</li>
-              <li>保証会社：不要</li>
-              <li>入居可能日：即日</li>
-            </ul>
-          </article>
-
-          <article class="property archived">
-            <h3>301号室（岩本マンション）</h3>
-            <p class="property-eyebrow">満室 / 募集停止中</p>
-            <ul>
-              <li>住所：大阪市此花区春日出南2丁目7-34</li>
-              <li>間取り：1K（洋室6帖）</li>
-              <li>専有面積：23㎡</li>
-              <li>賃料：47,000円／月</li>
-              <li>礼金・敷金：各47,000円</li>
-              <li>水道料金：3,000円／月</li>
-              <li>仲介手数料：無料</li>
-              <li>保証会社：不要</li>
-              <li>入居可能日：即日</li>
-            </ul>
-          </article>
-        </div>
-      </div>
-    </section>
-
-      <section id="contact" class="section">
-        <div class="section-inner">
-          <p class="section-kicker reveal">Contact</p>
-          <h2 class="reveal">お問い合わせ</h2>
-          <p class="section-copy reveal">
-            物件やご相談内容を簡単にお知らせください。確認後、対応可能な範囲でご連絡します。
-          </p>
-          <ul class="contact-list reveal">
-            <li>
-              <span>メール</span>
-              <a href="mailto:hanlin@hanlin.jp">hanlin@hanlin.jp</a>
-            </li>
-            <li>
-              <span>LINE ID</span>
-              20220810miyazaki
-            </li>
-            <li>
-              <span>微信サービス号</span>
-              <b class="wechat-name">翰林斉家</b>
-            </li>
-            <li>
-              <span>電話</span>
-              <a href="tel:0676505103">06-7650-5103</a>
-            </li>
-          </ul>
-        </div>
-      </section>
-    </main>
-
-    <aside class="side-nav reveal" aria-label="不動産カテゴリーナビゲーション">
-      <div class="side-contact">
-        <div class="side-phone-line">
-          <p class="side-contact-label">TEL / FAX：</p>
-          <a href="tel:0676505103">06-7650-5103</a>
-        </div>
-        <div class="business-hours" aria-label="電話受付時間" tabindex="0" title="電話受付時間">
-          <div class="business-day is-sun is-closed">
-            <b>日</b>
-            <span>休</span>
-          </div>
-          <div class="business-day is-mon is-open">
-            <b>月</b>
-            <span>11:00
--
-17:00</span>
-          </div>
-          <div class="business-day is-tue is-closed">
-            <b>火</b>
-            <span>休</span>
-          </div>
-          <div class="business-day is-wed is-open">
-            <b>水</b>
-            <span>11:00
--
-17:00</span>
-          </div>
-          <div class="business-day is-thu is-open">
-            <b>木</b>
-            <span>11:00
--
-17:00</span>
-          </div>
-          <div class="business-day is-fri is-open">
-            <b>金</b>
-            <span>11:00
--
-17:00</span>
-          </div>
-          <div class="business-day is-sat is-open">
-            <b>土</b>
-            <span>11:00
--
-17:00</span>
-          </div>
-        </div>
-        <p class="side-contact-note">物件のご相談はお気軽にお問い合わせください</p>
-      </div>
-
-      <nav class="side-menu side-rent-menu" aria-label="賃貸物件カテゴリー">
-        <h2>賃貸物件</h2>
-        <ul>
-          <li><a href="#properties">貸家</a></li>
-          <li><a href="#properties">文化・アパート</a></li>
-          <li><a href="#properties">マンション</a></li>
-          <li><a href="#properties">店舗・倉庫</a></li>
-          <li><a href="#properties">駐車場</a></li>
-        </ul>
-      </nav>
-
-      <nav class="side-menu side-sale-menu" aria-label="売買物件カテゴリー">
-        <h2>売買物件</h2>
-        <ul>
-          <li><a class="is-highlight" href="#properties">売物件</a></li>
-          <li><a href="#properties">売土地</a></li>
-          <li>
-            <a class="logo-link" href="https://mirai-toshi.co.jp/estate/data.php?c=search&amp;add_area%5B%5D=%E5%A4%A7%E9%98%AA%E5%BA%9C&amp;add_area%5B%5D=%E5%85%B5%E5%BA%AB%E7%9C%8C&amp;order_key=buy_cost&amp;order=ASC" target="_blank" rel="noopener noreferrer">
-              <img src="mirai-toshi-logo.png" alt="未来都市開発" width="289" height="82" />
-            </a>
-          </li>
-        </ul>
-      </nav>
-
-      <nav class="side-menu side-youtube-menu" aria-label="YouTubeチャンネル">
-        <h2>YouTube</h2>
-        <ul>
-          <li><a href="https://www.youtube.com/@ninhao1379" target="_blank" rel="noopener noreferrer">翰林斉家youtube</a></li>
-        </ul>
-      </nav>
-
-      <nav class="side-menu side-wechat-menu" aria-label="微信サービス号カテゴリー">
-        <h2>微信サービス号</h2>
-        <ul>
-          <li><a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzk5MDMyMDEzOQ==&amp;action=getalbum&amp;album_id=4048760903205126151&amp;scene=126&amp;sessionid=1782787622450#wechat_redirect" target="_blank" rel="noopener noreferrer">翰林+</a></li>
-          <li><a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzk5MDMyMDEzOQ==&amp;action=getalbum&amp;album_id=4023899665366958087&amp;scene=126&amp;sessionid=1782787659463#wechat_redirect" target="_blank" rel="noopener noreferrer">翰林说房</a></li>
-          <li><a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzk5MDMyMDEzOQ==&amp;action=getalbum&amp;album_id=4023897646229012490&amp;scene=126&amp;sessionid=1782787945666#wechat_redirect" target="_blank" rel="noopener noreferrer">物件精选</a></li>
-          <li><a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzk5MDMyMDEzOQ==&amp;action=getalbum&amp;album_id=4048762162754617361&amp;scene=126&amp;sessionid=1782787734324#wechat_redirect" target="_blank" rel="noopener noreferrer">豆知识</a></li>
-          <li><a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzk5MDMyMDEzOQ==&amp;action=getalbum&amp;album_id=4023894734358626310&amp;scene=126&amp;sessionid=1782787768558#wechat_redirect" target="_blank" rel="noopener noreferrer">术语速查</a></li>
-          <li><a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzk5MDMyMDEzOQ==&amp;action=getalbum&amp;album_id=4048858344034140160&amp;scene=126&amp;sessionid=1782787810812#wechat_redirect" target="_blank" rel="noopener noreferrer">生活点滴</a></li>
-          <li><a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzk5MDMyMDEzOQ==&amp;action=getalbum&amp;album_id=4290617086096965634&amp;scene=126&amp;sessionid=1782787879776#wechat_redirect" target="_blank" rel="noopener noreferrer">関西万博</a></li>
-          <li><a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzk5MDMyMDEzOQ==&amp;action=getalbum&amp;album_id=4290656389711790082&amp;scene=126&amp;sessionid=1782787844465#wechat_redirect" target="_blank" rel="noopener noreferrer">跑步+</a></li>
-          <li><a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzk5MDMyMDEzOQ==&amp;action=getalbum&amp;album_id=4355842215575666711#wechat_redirect" target="_blank" rel="noopener noreferrer">燕呢喃</a></li>
-        </ul>
-      </nav>
-
-      <a class="side-campaign" href="#contact">
-        <p>キャンペーン実施中</p>
-        <span>詳しくはお問い合わせください</span>
-      </a>
-    </aside>
   </div>
 
-  <footer>
-    <p>&copy; 2025 翰林齊家株式会社</p>
+  <!-- ==================== CURSOR ==================== -->
+  <div class="cursor" id="cursor" aria-hidden="true">
+    <div class="cursor-dot" id="cursorDot"></div>
+    <div class="cursor-ring" id="cursorRing"><span class="cursor-label" id="cursorLabel"></span></div>
+  </div>
+
+  <!-- ==================== GRAIN ==================== -->
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- ==================== PROGRESS ==================== -->
+  <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
+
+  <!-- ==================== NAV ==================== -->
+  <header class="nav" id="nav" data-theme-now="dark">
+    <a class="nav-brand" href="#top" data-cursor="hover">
+      <span class="seal seal--mini" aria-hidden="true">
+        <svg viewBox="0 0 64 64" role="img">
+          <rect x="2" y="2" width="60" height="60" fill="none" stroke="currentColor" stroke-width="3"/>
+          <text x="46" y="20" class="seal-t">翰</text>
+          <text x="46" y="48" class="seal-t">林</text>
+          <text x="18" y="20" class="seal-t">斉</text>
+          <text x="18" y="48" class="seal-t">家</text>
+        </svg>
+      </span>
+      <span class="nav-brand-text">
+        <b>翰林斉家株式会社</b>
+        <i>HANLIN SAIKA CO., LTD.</i>
+      </span>
+    </a>
+    <nav class="nav-links" aria-label="主要ナビゲーション">
+      <a href="#philosophy" data-cursor="hover"><i>01</i>理念</a>
+      <a href="#services" data-cursor="hover"><i>02</i>業務</a>
+      <a href="#property" data-cursor="hover"><i>03</i>物件</a>
+      <a href="#osaka" data-cursor="hover"><i>04</i>大阪</a>
+      <a href="#contact" data-cursor="hover"><i>05</i>連絡</a>
+    </nav>
+    <div class="nav-side">
+      <span class="nav-clock" aria-label="大阪の現在時刻">OSAKA <b id="clock">--:--</b> JST</span>
+      <a class="btn btn--seal" href="#contact" data-magnetic data-cursor="hover"><span>ご相談</span></a>
+    </div>
+    <button class="nav-burger" id="navBurger" aria-label="メニューを開く" aria-controls="mnav" aria-expanded="false">
+      <span></span><span></span>
+    </button>
+  </header>
+
+  <!-- Mobile menu -->
+  <div class="mnav" id="mnav" aria-hidden="true">
+    <nav aria-label="モバイルナビゲーション">
+      <a href="#philosophy" style="--i:0"><em>〇一</em>理念<i>Philosophy</i></a>
+      <a href="#services" style="--i:1"><em>〇二</em>業務<i>Services</i></a>
+      <a href="#property" style="--i:2"><em>〇三</em>物件<i>Property</i></a>
+      <a href="#osaka" style="--i:3"><em>〇四</em>大阪<i>Osaka</i></a>
+      <a href="#contact" style="--i:4"><em>〇五</em>連絡<i>Contact</i></a>
+    </nav>
+    <div class="mnav-foot">
+      <a href="tel:0676505103">06-7650-5103</a>
+      <a href="mailto:hanlin@hanlin.jp">hanlin@hanlin.jp</a>
+    </div>
+  </div>
+
+  <main id="top">
+
+    <!-- ==================== HERO ==================== -->
+    <section class="hero" id="hero" data-nav="dark">
+      <div class="hero-canvas-wrap" aria-hidden="true">
+        <canvas id="city"></canvas>
+        <div class="hero-haze"></div>
+        <div class="hero-vignette"></div>
+      </div>
+
+      <div class="hero-inner">
+        <p class="hero-eyebrow" data-hero-fade>
+          <span class="hero-eyebrow-jp">大阪・中央区の不動産会社</span>
+          <span class="hero-eyebrow-rule"></span>
+          <span class="hero-eyebrow-en">REAL ESTATE, OSAKA</span>
+        </p>
+
+        <h1 class="hero-title" aria-label="商いは、叫ばず、築くもの。">
+          <span class="ht-line"><span class="ht-inner" data-split>商いは、叫ばず、</span></span>
+          <span class="ht-line"><span class="ht-inner" data-split>築くもの<b class="ht-period">。</b></span></span>
+        </h1>
+
+        <p class="hero-lead" data-hero-fade>
+          大阪の街で、ひと組ひと組のご縁を、ていねいに。<br />
+          不動産売買・賃貸仲介・管理の翰林斉家株式会社です。
+        </p>
+
+        <ul class="hero-cred" data-hero-fade aria-label="免許・所属団体">
+          <li>宅地建物取引業 大阪府知事（1）第66017号</li>
+          <li>（公社）全日本不動産協会 会員</li>
+          <li>（公社）不動産保証協会 会員</li>
+        </ul>
+      </div>
+
+      <div class="hero-vertical" data-hero-fade aria-hidden="true">
+        <span>翰林斉家株式会社 — 大阪・中央区</span>
+      </div>
+
+      <div class="hero-foot" data-hero-fade>
+        <a class="hero-scroll" href="#philosophy" data-cursor="hover">
+          <span class="hero-scroll-line" aria-hidden="true"></span>
+          <span>SCROLL</span>
+        </a>
+        <p class="hero-coords">34.6851° N, 135.5136° E — OSAKA, JAPAN</p>
+      </div>
+    </section>
+
+    <!-- ==================== MARQUEE ==================== -->
+    <div class="marquee" data-nav="dark" aria-hidden="true">
+      <div class="marquee-row marquee-row--a" id="marqueeA">
+        <div class="marquee-track">
+          <span>不動産売買<i>・</i>賃貸仲介<i>・</i>不動産管理<i>・</i>投資・収益物件<i>・</i>在日生活サポート<i>・</i></span>
+          <span>不動産売買<i>・</i>賃貸仲介<i>・</i>不動産管理<i>・</i>投資・収益物件<i>・</i>在日生活サポート<i>・</i></span>
+        </div>
+      </div>
+      <div class="marquee-row marquee-row--b" id="marqueeB">
+        <div class="marquee-track">
+          <span><em>Sales</em> — <em>Leasing</em> — <em>Management</em> — <em>Investment</em> — <em>Life&nbsp;Support</em> — </span>
+          <span><em>Sales</em> — <em>Leasing</em> — <em>Management</em> — <em>Investment</em> — <em>Life&nbsp;Support</em> — </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== PHILOSOPHY ==================== -->
+    <section class="philosophy" id="philosophy" data-nav="light">
+      <div class="section-head" data-reveal>
+        <span class="section-no">〇一</span>
+        <span class="section-rule"></span>
+        <span class="section-en">PHILOSOPHY</span>
+        <h2 class="section-jp">理念</h2>
+      </div>
+
+      <div class="phil-grid">
+        <div class="phil-statement">
+          <p class="rl" data-reveal="lines">
+            <span class="rl-line"><span class="rl-inner">五年の歳月をかけて、</span></span>
+            <span class="rl-line"><span class="rl-inner">言葉を学び、街を歩き、</span></span>
+            <span class="rl-line"><span class="rl-inner">信頼をひとつずつ、</span></span>
+            <span class="rl-line"><span class="rl-inner"><mark>積み上げて</mark>きました。</span></span>
+          </p>
+          <div class="phil-copy" data-reveal>
+            <p>これは、一人の中国人が定年後、五年をかけてゼロから日本語を学び、大阪で立ち上げた不動産会社です。</p>
+            <p>いまは、条件のシンプルな売買・賃貸を中心に。複雑なご相談は、内容を確認したうえで<span class="nw">「できること」</span>と<span class="nw">「できないこと」</span>を正直にお伝えします。</p>
+            <p>派手な広告も、強引な営業もありません。あるのは、目の前のひとつのご縁に、静かに向き合う時間だけです。</p>
+          </div>
+        </div>
+
+        <figure class="phil-quote" data-reveal>
+          <blockquote class="phil-quote-vertical">
+            <p>商売は叫ぶものではなく、築くもの。</p>
+            <p>良いことをすれば、運も良くなる。</p>
+          </blockquote>
+          <figcaption class="phil-quote-cap">— 創業の信念</figcaption>
+          <div class="hanko" id="hanko" aria-hidden="true">
+            <svg viewBox="0 0 120 120" role="img">
+              <rect x="4" y="4" width="112" height="112" fill="none" stroke="currentColor" stroke-width="5"/>
+              <text x="86" y="40" class="hanko-t">翰</text>
+              <text x="86" y="96" class="hanko-t">林</text>
+              <text x="34" y="40" class="hanko-t">斉</text>
+              <text x="34" y="96" class="hanko-t">家</text>
+            </svg>
+          </div>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ==================== SERVICES (horizontal) ==================== -->
+    <section class="services" id="services" data-nav="light">
+      <div class="services-pin" id="servicesPin">
+        <div class="section-head section-head--inpin" data-reveal>
+          <span class="section-no">〇二</span>
+          <span class="section-rule"></span>
+          <span class="section-en">SERVICES</span>
+          <h2 class="section-jp">業務内容</h2>
+          <p class="section-note">五つの仕事。どれも、急がず、ていねいに。</p>
+        </div>
+
+        <div class="sv-track" id="svTrack">
+          <article class="sv-card" data-cursor="drag">
+            <span class="sv-num" aria-hidden="true">壱</span>
+            <div class="sv-icon" aria-hidden="true">
+              <!-- machiya storefront with noren -->
+              <svg viewBox="0 0 48 48"><path class="draw" d="M4 19 24 7l20 12M10 15.5V38h28V15.5M14 21h12m-12 0v6m4-6v7m4-7v6m4-6v7M31 25h7v8h-7zM34.5 25v8M31 29h7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h3>不動産売買</h3>
+            <p class="sv-en">SALES &amp; PURCHASE</p>
+            <p>大阪市内を中心に、住宅や小規模物件の売買を。価格も、条件も、手続きの流れも、納得できるまで一緒に確認します。</p>
+          </article>
+
+          <article class="sv-card" data-cursor="drag">
+            <span class="sv-num" aria-hidden="true">弐</span>
+            <div class="sv-icon" aria-hidden="true">
+              <!-- door with key -->
+              <svg viewBox="0 0 48 48"><path class="draw" d="M11 10h15v28H11zM15 14h7v24M20 26h.01M36 12.5a3.5 3.5 0 1 0 .01 0M36 19.5V34m0-6h4m-4 4h3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h3>賃貸仲介</h3>
+            <p class="sv-en">LEASING</p>
+            <p>希望条件の整理から、内見、契約まで。住まいも、店舗・事務所も。わかりやすいご説明をお約束します。</p>
+          </article>
+
+          <article class="sv-card" data-cursor="drag">
+            <span class="sv-num" aria-hidden="true">参</span>
+            <div class="sv-icon" aria-hidden="true">
+              <!-- building elevation, seal of care -->
+              <svg viewBox="0 0 48 48"><path class="draw" d="M8 12h17v26H8zM8 20h17M8 28h17M14 34h5v4M31 22h11v11H31zM34 25h5v5h-5M33 16h7v3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h3>不動産管理</h3>
+            <p class="sv-en">MANAGEMENT</p>
+            <p>入居者対応から、募集、契約まわりまで。物件の状態を見ながら、オーナーさまと一緒に実務的な管理を考えます。</p>
+          </article>
+
+          <article class="sv-card" data-cursor="drag">
+            <span class="sv-num" aria-hidden="true">肆</span>
+            <div class="sv-icon" aria-hidden="true">
+              <!-- value built step by step + dimension line -->
+              <svg viewBox="0 0 48 48"><path class="draw" d="M6 38h8v-6h8m0 6v-6m0 0v-6h8m0 6v-6m0 0v-6h8v18M6 38h32M6 12v6m32-6v6M6 15h32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h3>投資・収益物件</h3>
+            <p class="sv-en">INVESTMENT</p>
+            <p>立地、賃料、管理状況。数字の裏側まで情報を整理し、リスクも含めて、判断の材料をそろえます。</p>
+          </article>
+
+          <article class="sv-card" data-cursor="drag">
+            <span class="sv-num" aria-hidden="true">伍</span>
+            <div class="sv-icon" aria-hidden="true">
+              <!-- two voices, one home -->
+              <svg viewBox="0 0 48 48"><path class="draw" d="M8 10h22v13H17l-5 5v-5H8zM14 16.5h.01M19 16.5h.01M24 16.5h.01M26 27h14v10h-3v4l-5-4h-6zM30 31l3-2.5 3 2.5v3h-6z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h3>在日生活サポート</h3>
+            <p class="sv-en">LIFE SUPPORT</p>
+            <p>言葉や手続きに不安があっても、大丈夫。日本での暮らしの始まりを、中国語でも支えます。WeChat公式アカウント「翰林斉家」でも発信中。</p>
+          </article>
+
+          <article class="sv-card sv-card--cta" data-cursor="hover">
+            <p class="sv-cta-jp">どの窓口か迷ったら、<br />そのままご相談ください。</p>
+            <a class="btn btn--line" href="#contact" data-magnetic data-cursor="hover"><span>お問い合わせへ</span><i>→</i></a>
+          </article>
+        </div>
+
+        <div class="sv-progress" aria-hidden="true"><span id="svProgressBar"></span></div>
+      </div>
+    </section>
+
+    <!-- ==================== PROPERTY ==================== -->
+    <section class="property" id="property" data-nav="dark">
+      <div class="section-head section-head--dark" data-reveal>
+        <span class="section-no">〇三</span>
+        <span class="section-rule"></span>
+        <span class="section-en">PROPERTY</span>
+        <h2 class="section-jp">物件情報</h2>
+      </div>
+
+      <div class="prop-grid">
+        <div class="prop-art" data-reveal aria-hidden="true">
+          <!-- Isometric building: Iwamoto Mansion rooftop -->
+          <svg viewBox="0 0 520 560" id="propSvg">
+            <defs>
+              <linearGradient id="wallG" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="rgba(242,237,227,.12)"/>
+                <stop offset="1" stop-color="rgba(242,237,227,.02)"/>
+              </linearGradient>
+            </defs>
+            <g class="prop-lines" fill="none" stroke="rgba(242,237,227,.85)" stroke-width="1.4" stroke-linejoin="round">
+              <!-- ground -->
+              <path class="draw" d="M40 470 260 350l220 120-220 120z" stroke="rgba(242,237,227,.28)"/>
+              <!-- building body -->
+              <path class="draw" d="M150 420V180l110-60 110 60v240l-110 60z" fill="url(#wallG)"/>
+              <path class="draw" d="M150 180l110 60 110-60M260 240v240"/>
+              <!-- floors left face -->
+              <g stroke="rgba(242,237,227,.4)">
+                <path d="M150 220l110 60M150 260l110 60M150 300l110 60M150 340l110 60M150 380l110 60"/>
+                <path d="M370 220l-110 60M370 260l-110 60M370 300l-110 60M370 340l-110 60M370 380l-110 60"/>
+              </g>
+              <!-- windows -->
+              <g class="prop-windows" stroke="none" fill="rgba(200,164,92,.75)">
+                <rect x="176" y="238" width="14" height="18" transform="skewY(28)" class="w w1"/>
+                <rect x="206" y="222" width="14" height="18" transform="skewY(28)" class="w w2"/>
+                <rect x="176" y="318" width="14" height="18" transform="skewY(28)" class="w w3"/>
+                <rect x="226" y="300" width="14" height="18" transform="skewY(28)" class="w w4"/>
+                <rect x="206" y="302" width="14" height="18" transform="skewY(28)" class="w w5"/>
+              </g>
+              <!-- rooftop space highlight -->
+              <path class="prop-roof" d="M150 180l110-60 110 60-110 60z" fill="rgba(216,68,46,.14)" stroke="rgba(216,68,46,.9)" stroke-width="1.6"/>
+              <!-- rooftop railing -->
+              <path class="draw" d="M150 172v8m110-68v8m110 52v8M150 172l110-60 110 60" stroke="rgba(242,237,227,.6)"/>
+              <!-- billboard wall -->
+              <path class="prop-bill" d="M282 262l72-40v96l-72 40z" fill="rgba(216,68,46,.08)" stroke="rgba(216,68,46,.9)" stroke-width="1.6"/>
+              <text x="296" y="316" class="prop-bill-t" transform="skewY(-28) translate(0 172)">AD</text>
+              <!-- beacon -->
+              <circle class="prop-beacon" cx="260" cy="112" r="4" fill="#d8442e" stroke="none"/>
+              <path d="M260 120v-6" stroke="rgba(242,237,227,.6)"/>
+              <!-- dims -->
+              <g class="prop-dims" stroke="rgba(242,237,227,.35)" stroke-dasharray="3 5">
+                <path d="M150 168 40 228m0 0v6m110-66v6"/>
+                <text x="42" y="186" class="dim-t" stroke="none">約80㎡</text>
+              </g>
+            </g>
+          </svg>
+          <span class="prop-art-cap">IWAMOTO MANSION — ROOFTOP &amp; WALL, KONOHANA-KU</span>
+        </div>
+
+        <div class="prop-info">
+          <p class="prop-badge" data-reveal><span class="prop-badge-dot" aria-hidden="true"></span>募集中 — NOW LEASING</p>
+          <h3 class="prop-title rl" data-reveal="lines">
+            <span class="rl-line"><span class="rl-inner">岩本マンション</span></span>
+            <span class="rl-line"><span class="rl-inner"><span class="nw">屋上スペース</span><span class="nw"><span class="prop-amp">＋</span>外壁広告</span></span></span>
+          </h3>
+          <p class="prop-lead" data-reveal>
+            大阪市此花区、約80㎡の屋上。空が近く、建物の一面をまるごと使える外壁も。
+            広告に、撮影に、企画の始まりに——「見せ方」から一緒に考えられる場所です。
+          </p>
+          <dl class="prop-specs" data-reveal>
+            <div><dt>所在地</dt><dd>大阪市此花区春日出南</dd></div>
+            <div><dt>面積</dt><dd>約<b data-count="80">0</b>㎡の利用可能スペース</dd></div>
+            <div><dt>賃料</dt><dd><b>¥100,000</b> / 月</dd></div>
+            <div><dt>契約期間</dt><dd>応相談</dd></div>
+          </dl>
+          <p class="prop-note" data-reveal>※ 205号室・301号室は現在入居中のため、募集を停止しています。空き予定はお問い合わせください。</p>
+          <a class="btn btn--washi" href="#contact" data-magnetic data-cursor="hover" data-reveal><span>この物件について聞く</span><i>→</i></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== OSAKA AREAS ==================== -->
+    <section class="osaka" id="osaka" data-nav="dark">
+      <div class="section-head section-head--dark" data-reveal>
+        <span class="section-no">〇四</span>
+        <span class="section-rule"></span>
+        <span class="section-en">AREA</span>
+        <h2 class="section-jp">大阪という街</h2>
+        <p class="section-note section-note--dark">歩いて、覚えた街から。</p>
+      </div>
+
+      <div class="area-wrap">
+        <ul class="area-list" id="areaList">
+          <li class="area-row is-active" data-area="chuo" data-cursor="hover" tabindex="0" role="button" aria-pressed="true">
+            <span class="area-jp">中央区</span>
+            <span class="area-en">CHUO</span>
+            <span class="area-desc">事務所のある街。歴史と商いが交差する、大阪の背骨。</span>
+            <span class="area-tag">事務所所在地</span>
+          </li>
+          <li class="area-row" data-area="kita" data-cursor="hover" tabindex="0" role="button" aria-pressed="false">
+            <span class="area-jp">北区</span>
+            <span class="area-en">KITA</span>
+            <span class="area-desc" aria-hidden="true">梅田。大阪の玄関口、再開発がいちばん動く場所。</span>
+            <span class="area-tag">売買・賃貸</span>
+          </li>
+          <li class="area-row" data-area="konohana" data-cursor="hover" tabindex="0" role="button" aria-pressed="false">
+            <span class="area-jp">此花区</span>
+            <span class="area-en">KONOHANA</span>
+            <span class="area-desc" aria-hidden="true">湾岸の風と観覧車。管理物件「岩本マンション」のある街。</span>
+            <span class="area-tag">管理物件</span>
+          </li>
+          <li class="area-row" data-area="naniwa" data-cursor="hover" tabindex="0" role="button" aria-pressed="false">
+            <span class="area-jp">浪速区</span>
+            <span class="area-en">NANIWA</span>
+            <span class="area-desc" aria-hidden="true">通天閣の足元。人情と商いの、いちばん濃いところ。</span>
+            <span class="area-tag">賃貸・店舗</span>
+          </li>
+          <li class="area-row" data-area="nishi" data-cursor="hover" tabindex="0" role="button" aria-pressed="false">
+            <span class="area-jp">西区</span>
+            <span class="area-en">NISHI</span>
+            <span class="area-desc" aria-hidden="true">堀江・靱公園。若い感性が集まる、水辺のまち。</span>
+            <span class="area-tag">売買・賃貸</span>
+          </li>
+        </ul>
+
+        <div class="area-art" aria-hidden="true">
+          <div class="area-art-frame">
+            <!-- 中央区: Osaka Castle -->
+            <svg viewBox="0 0 300 220" class="area-svg is-active" data-art="chuo" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M40 190h220M70 190v-30l-10-4v-14h180v14l-10 4v30"/>
+              <path d="M96 142h108l-8-22H104zM112 120h76l-7-18h-62zM124 102h52l-6-16h-40z"/>
+              <path d="M136 86h28l-4-12h-20zM146 74l4-10 4 10"/>
+              <path d="M104 120c-6-4-10-8-10-8m104 8c6-4 10-8 10-8M118 102c-5-3-8-6-8-6m72 6c5-3 8-6 8-6M132 86c-4-2-6-4-6-4m42 4c4-2 6-4 6-4"/>
+              <path d="M60 190v-16m180 16v-16" stroke-dasharray="2 4"/>
+            </svg>
+            <!-- 北区: Umeda Sky Building -->
+            <svg viewBox="0 0 300 220" class="area-svg" data-art="kita" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M30 190h240"/>
+              <path d="M96 190V60h34v130M170 190V60h34v130"/>
+              <path d="M96 74h108M96 60l17-14 17 14m40 0l17-14 17 14"/>
+              <circle cx="150" cy="88" r="16"/>
+              <path d="M130 60h40M113 100l24 22m50-22l-24 22" />
+              <path d="M104 120h18M104 140h18M104 160h18M178 120h18M178 140h18M178 160h18"/>
+            </svg>
+            <!-- 此花区: Ferris wheel + crane -->
+            <svg viewBox="0 0 300 220" class="area-svg" data-art="konohana" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 190h260"/>
+              <circle cx="110" cy="110" r="52"/>
+              <circle cx="110" cy="110" r="6"/>
+              <path d="M110 58v104M58 110h104M74 74l72 72M146 74l-72 72"/>
+              <path d="M110 162l-26 28m26-28l26 28"/>
+              <path d="M210 190V96l44-20v114M210 116h44M210 146h44M226 96v94M240 90v100"/>
+            </svg>
+            <!-- 浪速区: Tsutenkaku -->
+            <svg viewBox="0 0 300 220" class="area-svg" data-art="naniwa" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M40 190h220"/>
+              <path d="M118 190l14-44h36l14 44M132 146l10-58h16l10 58"/>
+              <path d="M142 88l-20-32h56l-20 32M126 66h48"/>
+              <path d="M146 56V36h8v20M143 36h14M150 36V24"/>
+              <circle cx="150" cy="118" r="10"/>
+              <path d="M112 190c14-8 62-8 76 0" stroke-dasharray="2 4"/>
+            </svg>
+            <!-- 西区: bridges over river -->
+            <svg viewBox="0 0 300 220" class="area-svg" data-art="nishi" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 150h260M20 190h260" />
+              <path d="M50 150c30-44 170-44 200 0M70 150c26-32 134-32 160 0"/>
+              <path d="M100 150v-24m50-9v33m50-33v9m0 24v-24M125 150v-30m100 30v-18"/>
+              <path d="M36 170c10 4 22 4 32 0s22-4 32 0 22 4 32 0 22-4 32 0 22 4 32 0 22-4 32 0" stroke-dasharray="1 6"/>
+            </svg>
+          </div>
+          <p class="area-art-label" id="areaArtLabel">CHUO-KU / 中央区</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== NUMBERS ==================== -->
+    <section class="numbers" data-nav="light">
+      <ul class="num-list" data-stagger>
+        <li data-reveal>
+          <span class="num-big"><b data-count="5">0</b><i>年</i></span>
+          <span class="num-cap">日本語ゼロから、創業までの歳月</span>
+        </li>
+        <li data-reveal>
+          <span class="num-big"><b data-count="66017" data-count-pad="5">0</b><i>号</i></span>
+          <span class="num-cap">宅建業免許 大阪府知事（1）</span>
+        </li>
+        <li data-reveal>
+          <span class="num-big"><b data-count="80">0</b><i>㎡</i></span>
+          <span class="num-cap">募集中の屋上スペース（此花区）</span>
+        </li>
+        <li data-reveal>
+          <span class="num-big"><b data-count="2">0</b><i>言語</i></span>
+          <span class="num-cap">日本語と中国語（簡体字・繁体字）でご対応</span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- ==================== CONTACT ==================== -->
+    <section class="contact" id="contact" data-nav="dark">
+      <div class="section-head section-head--dark" data-reveal>
+        <span class="section-no">〇五</span>
+        <span class="section-rule"></span>
+        <span class="section-en">CONTACT</span>
+        <h2 class="section-jp">お問い合わせ</h2>
+      </div>
+
+      <div class="contact-hero">
+        <h3 class="contact-big rl" data-reveal="lines">
+          <span class="rl-line"><span class="rl-inner">まずは、</span></span>
+          <span class="rl-line"><span class="rl-inner">お話から<b class="ht-period">。</b></span></span>
+        </h3>
+        <p class="contact-lead" data-reveal>
+          物件のこと、住まいのこと、日本での暮らしのこと。<br />
+          どんな小さなことでも、お気軽にお聞かせください。
+        </p>
+        <a class="btn btn--big" href="mailto:hanlin@hanlin.jp" data-magnetic data-cursor="hover" data-reveal>
+          <span>hanlin@hanlin.jp</span><i>→</i>
+        </a>
+      </div>
+
+      <div class="contact-grid" data-stagger>
+        <div class="c-card" data-reveal>
+          <span class="c-label">TEL / FAX</span>
+          <a class="c-value" href="tel:0676505103" data-cursor="hover">06-7650-5103</a>
+          <div class="hours" aria-label="電話受付時間（日曜・火曜 定休）">
+            <span class="hours-day is-closed"><b>日</b><i>休</i></span>
+            <span class="hours-day"><b>月</b><i>11-17</i></span>
+            <span class="hours-day is-closed"><b>火</b><i>休</i></span>
+            <span class="hours-day"><b>水</b><i>11-17</i></span>
+            <span class="hours-day"><b>木</b><i>11-17</i></span>
+            <span class="hours-day"><b>金</b><i>11-17</i></span>
+            <span class="hours-day"><b>土</b><i>11-17</i></span>
+          </div>
+        </div>
+        <div class="c-card" data-reveal>
+          <span class="c-label">LINE</span>
+          <span class="c-value">20220810miyazaki</span>
+          <span class="c-sub">ID検索で友だち追加</span>
+        </div>
+        <div class="c-card" data-reveal>
+          <span class="c-label">WECHAT（微信）</span>
+          <span class="c-value">翰林斉家</span>
+          <span class="c-sub">購入・賃貸ガイドを中国語で発信</span>
+        </div>
+        <div class="c-card" data-reveal>
+          <span class="c-label">YOUTUBE</span>
+          <a class="c-value" href="https://www.youtube.com/@ninhao1379" target="_blank" rel="noopener noreferrer" data-cursor="hover">@ninhao1379</a>
+          <span class="c-sub">大阪の物件と暮らしを動画で</span>
+        </div>
+      </div>
+
+      <address class="contact-addr" data-reveal>
+        <span class="c-label">OFFICE</span>
+        <p>〒540-0029 大阪市中央区本町橋6-21 シャンボール内本町302号室</p>
+      </address>
+    </section>
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="footer" data-nav="dark">
+      <div class="footer-mark" aria-hidden="true">翰林斉家</div>
+      <div class="footer-grid">
+        <div class="footer-col">
+          <span class="seal seal--foot" aria-hidden="true">
+            <svg viewBox="0 0 64 64">
+              <rect x="2" y="2" width="60" height="60" fill="none" stroke="currentColor" stroke-width="3"/>
+              <text x="46" y="20" class="seal-t">翰</text>
+              <text x="46" y="48" class="seal-t">林</text>
+              <text x="18" y="20" class="seal-t">斉</text>
+              <text x="18" y="48" class="seal-t">家</text>
+            </svg>
+          </span>
+          <p class="footer-name">翰林斉家株式会社<br /><i>HANLIN SAIKA CO., LTD.</i></p>
+        </div>
+        <ul class="footer-cred">
+          <li>宅地建物取引業 大阪府知事（1）第66017号</li>
+          <li>（公社）全日本不動産協会 会員</li>
+          <li>（公社）不動産保証協会 会員</li>
+          <li>〒540-0029 大阪市中央区本町橋6-21 シャンボール内本町302号室</li>
+        </ul>
+        <div class="footer-links">
+          <a href="#philosophy" data-cursor="hover">理念</a>
+          <a href="#services" data-cursor="hover">業務</a>
+          <a href="#property" data-cursor="hover">物件</a>
+          <a href="#osaka" data-cursor="hover">大阪</a>
+          <a href="#contact" data-cursor="hover">連絡</a>
+          <a href="/guide" data-cursor="hover" class="footer-guide">制作の裏側（中文）→</a>
+        </div>
+      </div>
+      <div class="footer-base">
+        <p>© 2026 翰林斉家株式会社</p>
+        <p>Designed &amp; built by Claude — <a href="/guide" data-cursor="hover">how this site was made</a></p>
+      </div>
   </footer>
 
-  <script>
-    const translations = {
-      "zh-Hant": {
-        lang: "zh-Hant",
-        title: "翰林齊家株式會社 - 大阪市內的不動產買賣、租賃仲介與管理",
-        description: "翰林齊家株式會社是一家以大阪市內為中心，提供不動產買賣、租賃仲介、不動產管理、投資收益物件及在日生活支援的不動產公司。",
-        text: {
-          ".brand span": "翰林齊家株式會社",
-          ".nav-links a[href='#services']": "業務內容",
-          ".nav-links a[href='#about']": "關於我們",
-          ".nav-links a[href='#properties']": "物件資訊",
-          ".nav-links a[href='#contact']": "聯絡我們",
-          ".eyebrow": "以大阪市內為中心的不動產公司",
-          "h1": "翰林齊家株式會社",
-          ".hero-lead": "我們以大阪市內為中心，提供不動產買賣、租賃仲介與不動產管理服務。對每一項諮詢，我們都會沉著、細緻地回應。",
-          ".credentials li:nth-child(1)": "大阪府知事（1）第66017號",
-          ".credentials li:nth-child(2)": "公益社團法人 全日本不動產協會 會員",
-          ".credentials li:nth-child(3)": "公益社團法人 不動產保證協會 會員",
-          ".credentials li:nth-child(4)": "以大阪市內為中心的不動產買賣、租賃仲介與不動產管理",
-          ".hero-card dl > div:nth-child(1) dt": "所在地",
-          ".hero-card dl > div:nth-child(1) dd": "〒540-0029 大阪市中央區本町橋6-21 Chambord 內本町302室",
-          ".hero-card dl > div:nth-child(3) dt": "電子郵件",
-          "#services h2": "業務內容",
-          "#services .section-copy": "我們會先確認您的諮詢內容，明確說明可協助的範圍後再推進。必要時也會與專業人士合作，以不勉強的方式提供支援。",
-          ".services .service:nth-child(1) h3": "不動產買賣",
-          ".services .service:nth-child(1) p:nth-of-type(1)": "以大阪市內為中心，承接住宅及小規模物件的買賣諮詢。",
-          ".services .service:nth-child(1) p:nth-of-type(2)": "我們會一邊確認價格、條件與手續流程，一邊協助您安心推進。",
-          ".services .service:nth-child(2) h3": "租賃仲介",
-          ".services .service:nth-child(2) p:nth-of-type(1)": "無論是尋找住家、店鋪或事務所，我們都會從整理希望條件開始協助。",
-          ".services .service:nth-child(2) p:nth-of-type(2)": "我們會確認物件特點與契約條件，並盡力提供容易理解的說明。",
-          ".services .service:nth-child(3) h3": "不動產管理",
-          ".services .service:nth-child(3) p:nth-of-type(1)": "可就租賃物件的住戶應對、募集及契約相關管理進行諮詢。",
-          ".services .service:nth-child(3) p:nth-of-type(2)": "我們會確認物件狀況，並與業主商量實務可行的管理方式。",
-          ".services .service:nth-child(4) h3": "不動產投資、收益物件",
-          ".services .service:nth-child(4) p:nth-of-type(1)": "針對收益物件，我們可協助確認地點、租金、管理狀況等基本資訊。",
-          ".services .service:nth-child(4) p:nth-of-type(2)": "投資判斷需連同風險一起檢討，我們重視協助整理必要資訊。",
-          ".services .service:nth-child(5) h3": "在日生活支援",
-          ".services .service:nth-child(5) p:nth-of-type(1)": "對於不熟悉日本找房流程的客戶，我們也會說明契約與生活相關的基本事項。",
-          ".services .service:nth-child(5) p:nth-of-type(2)": "若對語言或手續感到不安，我們會在可協助的範圍內細心支援。",
-          ".services .service:nth-child(5) p:nth-of-type(3)": "面向外國人的購買與租賃指南，也會在微信服務號「翰林齊家」介紹。",
-          "#about h2": "關於我們",
-          ".about-text > p:nth-of-type(1)": "這是一位中國退休人士從零開始學習日語，歷經5年創立的不動產公司官方網站。",
-          ".about-text > p:nth-of-type(2)": "目前主要從事簡單物件的買賣與租賃業務。較複雜的案件，我們會確認內容後告知是否能夠受理。",
-          ".about-note p:nth-child(1)": "「生意不是靠喊出來的，而是一步步建立起來的。做好事，運氣也會變好。」",
-          ".about-note p:nth-child(2)": "我們懷抱這份信念，致力於誠實經營。",
-          "#properties h2": "募集資訊",
-          "#properties .section-copy": "以下是目前正在募集的空間資訊。最新狀況及使用條件，請與我們聯絡確認。",
-          ".property.featured .property-eyebrow": "募集中 / 岩本公寓",
-          ".property.featured h3": "屋頂空間、外牆廣告使用",
-          ".property.featured .property-lead:nth-of-type(1)": "這是位於大阪市此花區、約80平方公尺的屋頂空間。不僅可使用屋頂，還可活用建物一側的外牆部分。",
-          ".property.featured .property-lead:nth-of-type(2)": "可作為空間使用、廣告刊登、品牌曝光或企劃起點，並可依用途一同討論。不只是面積，也是一處能在呈現方式上發揮巧思的場所。",
-          ".property-points li:nth-child(1)": "約80平方公尺可使用空間",
-          ".property-points li:nth-child(2)": "可將建物外牆用於廣告展示",
-          ".property-points li:nth-child(3)": "租金：100,000日圓／月",
-          ".property-points li:nth-child(4)": "契約期間：可商議",
-          ".archived-properties .property:nth-child(1) h3": "205號室（岩本公寓）",
-          ".archived-properties .property:nth-child(2) h3": "301號室（岩本公寓）",
-          ".archived-properties .property .property-eyebrow": "已滿室 / 暫停募集",
-          "#contact h2": "聯絡我們",
-          "#contact .section-copy": "請簡單告知物件或諮詢內容。確認後，我們會在可協助的範圍內與您聯絡。",
-          ".contact-list li:nth-child(1) span": "電子郵件",
-          ".contact-list li:nth-child(3) span": "微信服務號",
-          ".wechat-name": "翰林齊家",
-          ".contact-list li:nth-child(4) span": "電話",
-          ".business-day:nth-child(1) b": "日",
-          ".business-day:nth-child(2) b": "一",
-          ".business-day:nth-child(3) b": "二",
-          ".business-day:nth-child(4) b": "三",
-          ".business-day:nth-child(5) b": "四",
-          ".business-day:nth-child(6) b": "五",
-          ".business-day:nth-child(7) b": "六",
-          ".business-day.is-closed span": "休",
-          ".side-contact-note": "物件諮詢歡迎隨時與我們聯絡",
-          ".side-rent-menu h2": "租賃物件",
-          ".side-rent-menu li:nth-child(1) a": "出租住宅",
-          ".side-rent-menu li:nth-child(2) a": "木造公寓・公寓",
-          ".side-rent-menu li:nth-child(3) a": "大樓公寓",
-          ".side-rent-menu li:nth-child(4) a": "店鋪・倉庫",
-          ".side-rent-menu li:nth-child(5) a": "停車場",
-          ".side-sale-menu h2": "買賣物件",
-          ".side-sale-menu li:nth-child(1) a": "出售物件",
-          ".side-sale-menu li:nth-child(2) a": "出售土地",
-          ".side-youtube-menu h2": "YouTube",
-          ".side-youtube-menu li:nth-child(1) a": "翰林齊家 YouTube",
-          ".side-wechat-menu h2": "微信服務號",
-          ".side-wechat-menu li:nth-child(1) a": "翰林+",
-          ".side-wechat-menu li:nth-child(2) a": "翰林說房",
-          ".side-wechat-menu li:nth-child(3) a": "物件精選",
-          ".side-wechat-menu li:nth-child(4) a": "豆知識",
-          ".side-wechat-menu li:nth-child(5) a": "術語速查",
-          ".side-wechat-menu li:nth-child(6) a": "生活點滴",
-          ".side-wechat-menu li:nth-child(7) a": "關西萬博",
-          ".side-wechat-menu li:nth-child(8) a": "跑步+",
-          ".side-wechat-menu li:nth-child(9) a": "燕呢喃",
-          ".side-campaign p": "活動進行中",
-          ".side-campaign span": "詳情請洽詢我們",
-          "footer p": "© 2025 翰林齊家株式會社"
-        },
-        attrs: {
-          ".nav": { "aria-label": "主要導覽" },
-          ".brand img": { alt: "翰林齊家株式會社標誌" },
-          ".credentials": { "aria-label": "公司資格與所屬團體" },
-          ".hero-card": { "aria-label": "公司聯絡方式" },
-          ".hero-card img": { alt: "翰林齊家株式會社" },
-          ".property-points": { "aria-label": "屋頂空間募集條件" },
-          ".business-hours": { "aria-label": "電話受理時間", title: "電話受理時間" },
-          ".side-nav": { "aria-label": "不動產分類導覽" },
-          ".side-rent-menu": { "aria-label": "租賃物件分類" },
-          ".side-sale-menu": { "aria-label": "買賣物件分類" },
-          ".side-youtube-menu": { "aria-label": "YouTube 頻道" },
-          ".side-wechat-menu": { "aria-label": "微信服務號分類" },
-          ".side-sale-menu .logo-link img": { alt: "未來都市開發" }
-        }
-      },
-      "zh-Hans": {
-        lang: "zh-Hans",
-        title: "翰林齐家株式会社 - 大阪市内的不动产买卖、租赁中介与管理",
-        description: "翰林齐家株式会社是一家以大阪市内为中心，提供不动产买卖、租赁中介、不动产管理、投资收益物件及在日生活支持的不动产公司。",
-        text: {
-          ".brand span": "翰林齐家株式会社",
-          ".nav-links a[href='#services']": "业务内容",
-          ".nav-links a[href='#about']": "关于我们",
-          ".nav-links a[href='#properties']": "物件信息",
-          ".nav-links a[href='#contact']": "联系我们",
-          ".eyebrow": "以大阪市内为中心的不动产公司",
-          "h1": "翰林齐家株式会社",
-          ".hero-lead": "我们以大阪市内为中心，提供不动产买卖、租赁中介与不动产管理服务。对每一项咨询，我们都会沉着、细致地回应。",
-          ".credentials li:nth-child(1)": "大阪府知事（1）第66017号",
-          ".credentials li:nth-child(2)": "公益社团法人 全日本不动产协会 会员",
-          ".credentials li:nth-child(3)": "公益社团法人 不动产保证协会 会员",
-          ".credentials li:nth-child(4)": "以大阪市内为中心的不动产买卖、租赁中介与不动产管理",
-          ".hero-card dl > div:nth-child(1) dt": "所在地",
-          ".hero-card dl > div:nth-child(1) dd": "〒540-0029 大阪市中央区本町桥6-21 Chambord 内本町302室",
-          ".hero-card dl > div:nth-child(3) dt": "电子邮箱",
-          "#services h2": "业务内容",
-          "#services .section-copy": "我们会先确认您的咨询内容，明确说明可协助的范围后再推进。必要时也会与专业人士合作，以不勉强的方式提供支持。",
-          ".services .service:nth-child(1) h3": "不动产买卖",
-          ".services .service:nth-child(1) p:nth-of-type(1)": "以大阪市内为中心，承接住宅及小规模物件的买卖咨询。",
-          ".services .service:nth-child(1) p:nth-of-type(2)": "我们会一边确认价格、条件与手续流程，一边协助您安心推进。",
-          ".services .service:nth-child(2) h3": "租赁中介",
-          ".services .service:nth-child(2) p:nth-of-type(1)": "无论是寻找住家、店铺或事务所，我们都会从整理希望条件开始协助。",
-          ".services .service:nth-child(2) p:nth-of-type(2)": "我们会确认物件特点与合同条件，并尽力提供容易理解的说明。",
-          ".services .service:nth-child(3) h3": "不动产管理",
-          ".services .service:nth-child(3) p:nth-of-type(1)": "可就租赁物件的住户应对、募集及合同相关管理进行咨询。",
-          ".services .service:nth-child(3) p:nth-of-type(2)": "我们会确认物件状况，并与业主商量实际可行的管理方式。",
-          ".services .service:nth-child(4) h3": "不动产投资、收益物件",
-          ".services .service:nth-child(4) p:nth-of-type(1)": "针对收益物件，我们可协助确认地点、租金、管理状况等基本信息。",
-          ".services .service:nth-child(4) p:nth-of-type(2)": "投资判断需连同风险一起讨论，我们重视协助整理必要信息。",
-          ".services .service:nth-child(5) h3": "在日生活支持",
-          ".services .service:nth-child(5) p:nth-of-type(1)": "对于不熟悉日本找房流程的客户，我们也会说明合同与生活相关的基本事项。",
-          ".services .service:nth-child(5) p:nth-of-type(2)": "若对语言或手续感到不安，我们会在可协助的范围内细心支持。",
-          ".services .service:nth-child(5) p:nth-of-type(3)": "面向外国人的购买与租赁指南，也会在微信服务号“翰林齐家”介绍。",
-          "#about h2": "关于我们",
-          ".about-text > p:nth-of-type(1)": "这是一位中国退休人士从零开始学习日语，历经5年创立的不动产公司官方网站。",
-          ".about-text > p:nth-of-type(2)": "目前主要从事简单物件的买卖与租赁业务。较复杂的案件，我们会确认内容后告知是否能够受理。",
-          ".about-note p:nth-child(1)": "“生意不是靠喊出来的，而是一步步建立起来的。做好事，运气也会变好。”",
-          ".about-note p:nth-child(2)": "我们怀抱这份信念，致力于诚信经营。",
-          "#properties h2": "募集信息",
-          "#properties .section-copy": "以下是目前正在募集的空间信息。最新状况及使用条件，请与我们联系确认。",
-          ".property.featured .property-eyebrow": "募集中 / 岩本公寓",
-          ".property.featured h3": "屋顶空间、外墙广告使用",
-          ".property.featured .property-lead:nth-of-type(1)": "这是位于大阪市此花区、约80平方米的屋顶空间。不仅可使用屋顶，还可活用建筑一侧的外墙部分。",
-          ".property.featured .property-lead:nth-of-type(2)": "可作为空间使用、广告刊登、品牌曝光或企划起点，并可依用途一同讨论。不只是面积，也是一处能在呈现方式上发挥巧思的场所。",
-          ".property-points li:nth-child(1)": "约80平方米可使用空间",
-          ".property-points li:nth-child(2)": "可将建筑外墙用于广告展示",
-          ".property-points li:nth-child(3)": "租金：100,000日元／月",
-          ".property-points li:nth-child(4)": "合同期间：可商议",
-          ".archived-properties .property:nth-child(1) h3": "205号室（岩本公寓）",
-          ".archived-properties .property:nth-child(2) h3": "301号室（岩本公寓）",
-          ".archived-properties .property .property-eyebrow": "已满室 / 暂停募集",
-          "#contact h2": "联系我们",
-          "#contact .section-copy": "请简单告知物件或咨询内容。确认后，我们会在可协助的范围内与您联系。",
-          ".contact-list li:nth-child(1) span": "电子邮箱",
-          ".contact-list li:nth-child(3) span": "微信服务号",
-          ".wechat-name": "翰林齐家",
-          ".contact-list li:nth-child(4) span": "电话",
-          ".business-day:nth-child(1) b": "日",
-          ".business-day:nth-child(2) b": "一",
-          ".business-day:nth-child(3) b": "二",
-          ".business-day:nth-child(4) b": "三",
-          ".business-day:nth-child(5) b": "四",
-          ".business-day:nth-child(6) b": "五",
-          ".business-day:nth-child(7) b": "六",
-          ".business-day.is-closed span": "休",
-          ".side-contact-note": "物件咨询欢迎随时与我们联系",
-          ".side-rent-menu h2": "租赁物件",
-          ".side-rent-menu li:nth-child(1) a": "出租住宅",
-          ".side-rent-menu li:nth-child(2) a": "木造公寓・公寓",
-          ".side-rent-menu li:nth-child(3) a": "大楼公寓",
-          ".side-rent-menu li:nth-child(4) a": "店铺・仓库",
-          ".side-rent-menu li:nth-child(5) a": "停车场",
-          ".side-sale-menu h2": "买卖物件",
-          ".side-sale-menu li:nth-child(1) a": "出售物件",
-          ".side-sale-menu li:nth-child(2) a": "出售土地",
-          ".side-youtube-menu h2": "YouTube",
-          ".side-youtube-menu li:nth-child(1) a": "翰林齐家 YouTube",
-          ".side-wechat-menu h2": "微信服务号",
-          ".side-wechat-menu li:nth-child(1) a": "翰林+",
-          ".side-wechat-menu li:nth-child(2) a": "翰林说房",
-          ".side-wechat-menu li:nth-child(3) a": "物件精选",
-          ".side-wechat-menu li:nth-child(4) a": "豆知识",
-          ".side-wechat-menu li:nth-child(5) a": "术语速查",
-          ".side-wechat-menu li:nth-child(6) a": "生活点滴",
-          ".side-wechat-menu li:nth-child(7) a": "関西万博",
-          ".side-wechat-menu li:nth-child(8) a": "跑步+",
-          ".side-wechat-menu li:nth-child(9) a": "燕呢喃",
-          ".side-campaign p": "活动进行中",
-          ".side-campaign span": "详情请咨询我们",
-          "footer p": "© 2025 翰林齐家株式会社"
-        },
-        attrs: {
-          ".nav": { "aria-label": "主要导航" },
-          ".brand img": { alt: "翰林齐家株式会社标志" },
-          ".credentials": { "aria-label": "公司资格与所属团体" },
-          ".hero-card": { "aria-label": "公司联系方式" },
-          ".hero-card img": { alt: "翰林齐家株式会社" },
-          ".property-points": { "aria-label": "屋顶空间募集条件" },
-          ".business-hours": { "aria-label": "电话受理时间", title: "电话受理时间" },
-          ".side-nav": { "aria-label": "不动产分类导航" },
-          ".side-rent-menu": { "aria-label": "租赁物件分类" },
-          ".side-sale-menu": { "aria-label": "买卖物件分类" },
-          ".side-youtube-menu": { "aria-label": "YouTube 频道" },
-          ".side-wechat-menu": { "aria-label": "微信服务号分类" },
-          ".side-sale-menu .logo-link img": { alt: "未来都市开发" }
-        }
-      }
-    };
-
-    const languageButtons = document.querySelectorAll("[data-language]");
-    const description = document.querySelector("meta[name='description']");
-
-    function applyLanguage(language) {
-      const translation = translations[language];
-      if (!translation) return;
-
-      document.documentElement.lang = translation.lang;
-      document.title = translation.title;
-      if (description) {
-        description.setAttribute("content", translation.description);
-      }
-
-      Object.entries(translation.text).forEach(([selector, value]) => {
-        document.querySelectorAll(selector).forEach((element) => {
-          element.textContent = value;
-        });
-      });
-
-      Object.entries(translation.attrs).forEach(([selector, attrs]) => {
-        document.querySelectorAll(selector).forEach((element) => {
-          Object.entries(attrs).forEach(([name, value]) => {
-            element.setAttribute(name, value);
-          });
-        });
-      });
-
-      languageButtons.forEach((button) => {
-        const isActive = button.dataset.language === language;
-        button.classList.toggle("is-active", isActive);
-        button.setAttribute("aria-pressed", String(isActive));
-      });
-    }
-
-    languageButtons.forEach((button) => {
-      button.addEventListener("click", () => applyLanguage(button.dataset.language));
-    });
-
-    const revealItems = document.querySelectorAll(".reveal");
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.16 });
-
-    revealItems.forEach((item) => observer.observe(item));
-  </script>
+  <script type="module" src="/site/assets/js/city.js"></script>
+  <script type="module" src="/site/assets/js/main.js"></script>
 </body>
 </html>

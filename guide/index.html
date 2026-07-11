@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="翰林斉家网站重建指南 — 设计概念、色彩、字体、3D 场景与动效系统的完整解析。" />
+  <title>制作指南 — 这个网站是这样筑起来的</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500;700;900&family=Noto+Sans+SC:wght@300;400;500&family=Shippori+Mincho+B1:wght@600;800&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23d8442e'/%3E%3Ctext x='32' y='36' font-family='serif' font-weight='700' font-size='40' fill='%23f2ede3' text-anchor='middle' dominant-baseline='central'%3E翰%3C/text%3E%3C/svg%3E" />
+  <style>
+    :root {
+      --ink: #0b0e13; --ink-2: #10141b; --washi: #f2ede3; --washi-2: #eae4d6;
+      --sumi: #191e27; --sumi-soft: #3c434f; --mist: #9aa2af; --mist-dim: #6b7280;
+      --shu: #d8442e; --kin: #c8a45c; --line: rgba(25,30,39,.15);
+      --f-mincho: "Noto Serif SC", "Shippori Mincho B1", "Source Han Serif SC", serif;
+      --f-gothic: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+      --f-en: "Cormorant Garamond", Georgia, serif;
+      --f-ja: "Shippori Mincho B1", "Hiragino Mincho ProN", "Yu Mincho", serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    [lang="ja"] { font-family: var(--f-ja); }
+    body {
+      background: var(--washi); color: var(--sumi);
+      font-family: var(--f-gothic); line-height: 2.1; letter-spacing: .02em;
+      -webkit-font-smoothing: antialiased;
+    }
+    ::selection { background: var(--shu); color: var(--washi); }
+    a { color: var(--shu); text-decoration: none; border-bottom: 1px solid rgba(216,68,46,.35); }
+    a:hover { border-bottom-color: var(--shu); }
+
+    .wrap { max-width: 880px; margin: 0 auto; padding: 0 clamp(20px, 5vw, 48px); }
+
+    header.g-hero {
+      background: var(--ink); color: var(--washi);
+      padding: clamp(80px, 14vh, 150px) 0 clamp(60px, 9vh, 100px);
+      position: relative; overflow: hidden;
+    }
+    header.g-hero::after {
+      content: "築"; position: absolute; right: -.08em; bottom: -.28em;
+      font-family: var(--f-mincho); font-weight: 800; font-size: clamp(200px, 30vw, 420px);
+      line-height: 1; color: transparent; -webkit-text-stroke: 1px rgba(242,237,227,.07);
+      pointer-events: none;
+    }
+    .g-back { font-size: 12px; letter-spacing: .2em; color: var(--mist); border: 0; }
+    .g-back:hover { color: var(--shu); }
+    .g-kicker { display:flex; align-items:center; gap:14px; margin-top: 40px; font-family: var(--f-en); font-style: italic; font-size: 13px; letter-spacing: .32em; color: var(--mist); }
+    .g-kicker::before { content:""; width: 48px; height: 1px; background: var(--shu); }
+    h1 { font-family: var(--f-mincho); font-weight: 800; font-size: clamp(34px, 6vw, 64px); line-height: 1.5; letter-spacing: .05em; margin-top: 18px; }
+    h1 b { color: var(--shu); }
+    .g-lead { margin-top: 24px; max-width: 60ch; color: var(--mist); font-size: 14.5px; }
+
+    main { padding: clamp(50px, 8vh, 90px) 0 40px; }
+    section { margin-bottom: clamp(56px, 9vh, 96px); }
+    .sec-head { display: flex; align-items: baseline; gap: 16px; margin-bottom: 28px; border-bottom: 1px solid var(--line); padding-bottom: 14px; }
+    .sec-no { font-family: var(--f-mincho); color: var(--shu); font-size: 13px; letter-spacing: .18em; }
+    h2 { font-family: var(--f-mincho); font-weight: 700; font-size: clamp(22px, 3vw, 30px); letter-spacing: .08em; }
+    .sec-en { margin-left: auto; font-family: var(--f-en); font-style: italic; font-size: 12px; letter-spacing: .28em; color: var(--mist-dim); }
+    h3 { font-family: var(--f-mincho); font-size: 17px; margin: 30px 0 10px; letter-spacing: .06em; }
+    p { margin-bottom: 1em; font-size: 14.5px; color: var(--sumi-soft); max-width: 72ch; }
+    p strong { color: var(--sumi); font-weight: 700; }
+    ul.plain { margin: 0 0 1em 0; padding-left: 1.4em; }
+    ul.plain li { font-size: 14.5px; color: var(--sumi-soft); margin-bottom: .5em; list-style: none; position: relative; }
+    ul.plain li::before { content: ""; position: absolute; left: -1.2em; top: .95em; width: .55em; height: 1px; background: var(--shu); }
+
+    code {
+      font-family: ui-monospace, "Cascadia Code", Consolas, monospace;
+      font-size: .86em; background: rgba(25,30,39,.07);
+      padding: .15em .45em; border-radius: 3px; color: var(--sumi);
+    }
+    pre {
+      background: var(--ink-2); color: var(--washi); border-radius: 6px;
+      padding: 20px 24px; overflow-x: auto; margin: 14px 0 24px;
+      font-size: 12.5px; line-height: 1.9;
+    }
+    pre:focus-visible { outline: 2px solid var(--shu); outline-offset: 3px; }
+    pre code { background: none; padding: 0; color: inherit; }
+
+    .swatches { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 12px; margin: 18px 0 8px; }
+    .sw { border: 1px solid var(--line); }
+    .sw i { display: block; height: 68px; }
+    .sw b { display: block; padding: 8px 12px 2px; font-size: 12px; font-family: var(--f-mincho); }
+    .sw span { display: block; padding: 0 12px 10px; font-size: 10.5px; color: var(--mist-dim); font-family: ui-monospace, Consolas, monospace; }
+
+    .type-demo { border: 1px solid var(--line); padding: 26px 28px; margin: 16px 0; background: rgba(255,255,255,.4); }
+    .type-demo .td-mincho { font-family: var(--f-mincho); font-weight: 800; font-size: clamp(26px, 4vw, 40px); letter-spacing: .05em; }
+    .type-demo .td-en { font-family: var(--f-en); font-style: italic; font-size: 18px; letter-spacing: .2em; color: var(--shu); margin-top: 4px; }
+    .type-demo .td-gothic { font-size: 12px; letter-spacing: .16em; color: var(--mist-dim); margin-top: 10px; }
+
+    table { width: 100%; border-collapse: collapse; margin: 14px 0 22px; font-size: 13px; }
+    th, td { text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
+    th { font-family: var(--f-mincho); font-size: 12px; letter-spacing: .12em; color: var(--sumi); white-space: nowrap; }
+    td { color: var(--sumi-soft); }
+    td:first-child { white-space: nowrap; font-weight: 700; color: var(--sumi); }
+
+    footer { background: var(--ink); color: var(--mist-dim); padding: 34px 0; font-size: 11px; letter-spacing: .12em; }
+    footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+    footer a { color: var(--mist); }
+  </style>
+</head>
+<body>
+  <header class="g-hero">
+    <div class="wrap">
+      <a class="g-back" href="/">← 返回翰林斉家主站</a>
+      <p class="g-kicker">MAKING-OF GUIDE / 制作指南</p>
+      <h1>这个网站，<br />是这样<b>筑</b>起来的。</h1>
+      <p class="g-lead">
+        一份简短的复盘：设计概念从哪里来、色彩与字体如何选择、3D 夜景如何用三百多行代码程序化生成、
+        动效系统如何在不引入任何动画库的前提下运转。希望它能帮你做出同样气质的东西。
+      </p>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap">
+
+      <section>
+        <div class="sec-head"><span class="sec-no">〇一</span><h2>概念：从一句社训开始</h2><span class="sec-en">CONCEPT</span></div>
+        <p>翰林斉家是大阪一家很小的不动产公司：创始人是一位中国退休人士，从零学日语，用五年时间拿到牌照开业。
+        原网站上有一句社训——<strong lang="ja">「商売は叫ぶものではなく、築くもの」</strong><strong>（生意不靠叫喊，而靠构筑）</strong>。</p>
+        <p>整个重设计都从这句话推导：<strong>不叫喊的设计</strong>。没有花哨的弹窗和大色块轰炸，
+        而是用「墨、和纸、朱印」三种材质感，配合克制但精密的动效，让「安静的可信赖感」成为视觉主题。
+        首屏大字直接把社训写成宣言：<span lang="ja">「商いは、叫ばず、築くもの。」</span>——设计即内容，内容即设计。</p>
+        <p>方法论上这一步最重要：<strong>先从项目自身的文本里找到一句能当「设计论点」的话</strong>，
+        之后每一个视觉决策（颜色、字重、动效节奏）都拿这句话来校验，风格自然就统一了。</p>
+      </section>
+
+      <section>
+        <div class="sec-head"><span class="sec-no">〇二</span><h2>色彩：墨、和纸、朱印</h2><span class="sec-en">COLOR</span></div>
+        <p>只有三个角色，各司其职。深色段落（夜的大阪）与浅色段落（白纸黑字的诚意）交替出现，形成呼吸感：</p>
+        <div class="swatches">
+          <div class="sw"><i style="background:#0b0e13"></i><b>墨 SUMI INK</b><span>#0b0e13 / #10141b</span></div>
+          <div class="sw"><i style="background:#f2ede3"></i><b>和紙 WASHI</b><span>#f2ede3 / #eae4d6</span></div>
+          <div class="sw"><i style="background:#d8442e"></i><b>朱 VERMILLION</b><span>#d8442e</span></div>
+          <div class="sw"><i style="background:#c8a45c"></i><b>金 KIN</b><span>#c8a45c（点缀）</span></div>
+        </div>
+        <p>朱红是「印章色」——只用在最关键处：句号「。」、导航下划线、印章、价格数字旁。
+        <strong>强调色的克制使用，本身就是层级</strong>。金色只出现在夜景窗灯与租金数字上，暗示「灯火与价值」。</p>
+      </section>
+
+      <section>
+        <div class="sec-head"><span class="sec-no">〇三</span><h2>字体：三种声音</h2><span class="sec-en">TYPOGRAPHY</span></div>
+        <div class="type-demo">
+          <div class="td-mincho" lang="ja">商いは、叫ばず、築くもの。</div>
+          <div class="td-en">Build quietly — Osaka, Japan</div>
+          <div class="td-gothic">不動産売買・賃貸仲介・不動産管理 — 大阪府知事（1）第66017号</div>
+        </div>
+        <ul class="plain">
+          <li><strong>Shippori Mincho B1</strong>（标题）：笔画有毛笔的顿挫，字重 800 时极具「碑刻感」，是整站的声音主体。</li>
+          <li><strong>Cormorant Garamond Italic</strong>（英文点缀）：高对比衬线斜体，与明朝体的书法气质同源，负责「呼吸的空隙」。</li>
+          <li><strong>Zen Kaku Gothic New</strong>（正文与标签）：干净的日文黑体，退到幕后承载信息。</li>
+        </ul>
+        <p>两个小技巧：① 大标题用 <code>-webkit-text-stroke</code> 做「空心字」水印（页脚的巨型「翰林斉家」、跑马灯），
+        存在感强但不抢内容；② 竖排文字用 <code>writing-mode: vertical-rl</code>，首屏右侧的社名与理念区的竖排引文，
+        一行代码就能带来强烈的「和」的骨架。</p>
+      </section>
+
+      <section>
+        <div class="sec-head"><span class="sec-no">〇四</span><h2>3D：程序化生成的大阪夜景</h2><span class="sec-en">THREE.JS</span></div>
+        <p>首屏背景不是图片，而是 Three.js 实时渲染的「夜的大阪」，全部程序化生成，零素材、零外部请求（Three.js 本体也放在本地 <code>vendor/</code>）。三百多行代码，核心思路四层：</p>
+        <ul class="plain">
+          <li><strong>楼群</strong>：42×30 的街区网格，按 <code>ix % 6 / iz % 5</code> 留出街道、再随机空置一成六，用一个 <code>InstancedMesh</code> 一次画完约 700 栋楼——一次 draw call。市中心用距离函数抬高楼高，形成天际线。</li>
+          <li><strong>窗灯</strong>：每栋楼按楼层×开间随机点亮约 20%–30% 的窗，共约一万多个点，用自定义 <code>ShaderMaterial</code> 的 Points 渲染：顶点着色器里做闪烁（每个点有自己的相位与速度），片元着色器里做圆形光斑与深度雾。</li>
+          <li><strong>雨后路面反射</strong>：把同一份窗灯几何体再画一次，<code>y</code> 取负、加上 <code>sin</code> 水波扰动、透明度降到 0.2——「雨后大阪」的路面反光就有了，几乎零成本。</li>
+          <li><strong>氛围</strong>：指数雾（FogExp2）统一色调，密度随时间±9% 缓慢「呼吸」；地平线放一张 canvas 渐变贴图做城市光晕；一座线框「塔」顶着朱红呼吸信标，致敬通天阁。</li>
+        </ul>
+        <pre tabindex="0" role="region" aria-label="窗灯着色器代码示例"><code>// 窗灯闪烁的核心（顶点着色器）
+float tw = 0.78 + 0.22 * sin(uTime * aPhase.y + aPhase.x);
+// 镜像反射 + 水波（同一份几何体，第二次绘制）
+if (uMirror > 0.5) {
+  p.y = -p.y;
+  p.x += sin(p.y * 0.7 + uTime * 1.4 + aPhase.x) * 0.28;
+}</code></pre>
+        <p>性能上：像素比封顶 1.6、雾裁剪远景、Hero 滚出视口后用 <code>IntersectionObserver</code> 暂停渲染循环。
+        相机做三件事：约 35 秒周期的正弦漂移加一段极缓的推轨（永远「活着」）、鼠标位置的低通滤波视差、滚动时缓缓抬升——三层运动叠加，画面就有了「电影感」。</p>
+      </section>
+
+      <section>
+        <div class="sec-head"><span class="sec-no">〇五</span><h2>动效：零依赖的编排系统</h2><span class="sec-en">MOTION</span></div>
+        <p>没有 GSAP、没有 Lenis——全部动效手写，约 300 行。这不是炫技，而是因为<strong>动效系统的「手感」来自缓动曲线和编排，不来自库</strong>：</p>
+        <table>
+          <tr><th>系统</th><th>做法</th></tr>
+          <tr><td>开场</td><td>「築」字水位式充填 + 计数器（000→100），结束时墨色幕布以 <code>cubic-bezier(.83,0,.17,1)</code> 两段式掀开</td></tr>
+          <tr><td>标题入场</td><td>JS 逐字切分，每字 <code>translateY(115%) rotate(4deg)</code> 起跳，55ms 阶梯延迟——书法「起笔」的感觉</td></tr>
+          <tr><td>行级揭示</td><td>HTML 预先按行包裹（<code>overflow:hidden</code> 的行容器），IntersectionObserver 触发位移，不依赖运行时测量</td></tr>
+          <tr><td>横向卷轴</td><td>「業務内容」区高 440vh，内层 <code>position: sticky</code> 钉住，滚动进度映射为轨道 <code>translateX</code>——像展开一幅卷轴；移动端退化为原生横滑 + scroll-snap</td></tr>
+          <tr><td>印章盖印</td><td><code>scale(1.6) → 0.94 → 1</code> 配合模糊消除与回弹曲线，600ms 内完成一次「盖章」</td></tr>
+          <tr><td>跑马灯</td><td>rAF 位移取模循环，速度叠加滚动速度的低通滤波——滚得越快跑得越快</td></tr>
+          <tr><td>光标</td><td>朱点即时跟随 + 圆环 <code>lerp(0.16)</code> 滞后，悬停时圆环胀大并显示「見る」</td></tr>
+        </table>
+        <p>所有滚动逻辑合并在<strong>一个 rAF 循环</strong>里（导航主题切换、进度条、卷轴、跑马灯），避免多个监听器互相打架。
+        整站遵守 <code>prefers-reduced-motion</code>：动效全部退化为直接呈现。</p>
+      </section>
+
+      <section>
+        <div class="sec-head"><span class="sec-no">〇六</span><h2>手工 SVG：可被动画的插画</h2><span class="sec-en">ILLUSTRATION</span></div>
+        <p>物件区的等轴测建筑（岩本マンション的屋顶与广告墙），以及五个区的地标线稿（大阪城、梅田蓝天大厦、摩天轮、通天阁、堀江水岸），
+        全部是手写坐标的 SVG 线稿。手写的好处是<strong>每一条 path 都可以被动画</strong>：
+        用 <code>stroke-dasharray / stroke-dashoffset</code> 做「墨线描画」入场，窗灯矩形逐个点亮，屋顶与广告面再以朱红浮现——
+        一张「图」变成了一段有时间性的叙事。</p>
+      </section>
+
+      <section>
+        <div class="sec-head"><span class="sec-no">〇七</span><h2>复现清单</h2><span class="sec-en">HOW TO REPLICATE</span></div>
+        <ul class="plain">
+          <li>从项目文本里找一句「设计论点」，让所有决策向它对齐。</li>
+          <li>三色系统：一深一浅一强调；强调色的出场次数控制在个位数。</li>
+          <li>字体三声部：display 衬线（态度）＋正文无衬线（信息）＋外文斜体（空隙）。</li>
+          <li>背景用程序化 3D 而非图库：InstancedMesh + 着色器点云 + 雾，三百多行可完成。</li>
+          <li>动效手写：一个 rAF 主循环 + IntersectionObserver + 预包裹的行容器 + 好的缓动曲线。</li>
+          <li>细节即品味：噪点覆膜、自定义光标、当地时钟、坐标签名、印章动画、竖排文字。</li>
+          <li>永远收尾：移动端退化方案、<code>prefers-reduced-motion</code>、性能预算（DPR 封顶、离屏暂停）。</li>
+        </ul>
+        <h3>技术构成</h3>
+        <table>
+          <tr><th scope="col">项</th><th scope="col">说明</th></tr>
+          <tr><th scope="row">栈</th><td>原生 HTML / CSS / ES Modules —— 无构建步骤，无框架</td></tr>
+          <tr><th scope="row">3D</th><td>Three.js r160（本地 vendor，importmap 引入，压缩版约 650KB）</td></tr>
+          <tr><th scope="row">字体</th><td>Google Fonts：Shippori Mincho B1 / Zen Kaku Gothic New / Cormorant Garamond（本页另加 Noto Serif SC / Noto Sans SC）</td></tr>
+          <tr><th scope="row">服务</th><td>Python 单文件静态服务器（<code>serve.py</code>），<code>/guide</code> 路由到本页</td></tr>
+          <tr><th scope="row">制作</th><td>由 Claude（Fable 5）设计并编码，经三轮以上「放大镜」迭代打磨</td></tr>
+        </table>
+      </section>
+
+      <section>
+        <div class="sec-head"><span class="sec-no">〇八</span><h2>迭代：放大镜下的三轮打磨</h2><span class="sec-en">ITERATION</span></div>
+        <p>初版完成后，网站经历了三轮系统性的迭代。第一轮由<strong>六个独立视角的评审</strong>并行进行——排印、动效、色彩、代码、文案（母语级日文校对）、无障碍与响应式——共产出 88 条具体发现，合并去重后按「必修 / 高杠杆 / 加分」排序执行。</p>
+        <p>几个典型的修正，可以感受这轮打磨的粒度：</p>
+        <ul class="plain">
+          <li>灰色辅助文字原本用了 <code>#6b7280</code>（Tailwind 灰）——冷色、对比度不达标，被整体替换为暖色的半透明和纸白与墨色系。</li>
+          <li>日文文案里「満室」误用于单间、「強い営業」是褒义（应为「強引な営業」）——这类母语者才会察觉的错误被逐条修正。</li>
+          <li>竖排引文的容器高度不够，导致句子在词中间断开换列——对日式排版是致命伤。</li>
+          <li>预加载器原本是固定 1.9 秒的定时器，与字体加载、3D 首帧完全脱钩——改为真正等待 <code>document.fonts.ready</code> 与首帧事件。</li>
+          <li>减少动效（prefers-reduced-motion）模式下自定义光标会「消失」——桌面用户会拿着一个隐形鼠标浏览。</li>
+        </ul>
+        <p>方法论只有一句：<strong>完成之后，才是设计真正开始的地方。</strong>用放大镜逐屏审视，把每一个 1px 的漂移、每一个错误的助词、每一个对比度不足的灰都当成缺陷清单的一行。</p>
+      </section>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span>© 2026 翰林斉家株式会社 — Making-of Guide</span>
+      <span>Designed &amp; built by <a href="https://claude.com/claude-code">Claude</a> · <a href="/">back to site</a></span>
+    </div>
+  </footer>
+</body>
+</html>
