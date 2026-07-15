@@ -251,6 +251,7 @@ if (mqFine.matches && !mqReduce.matches) {
     chuo: "CHUO-KU / 中央区",
     kita: "KITA-KU / 北区",
     konohana: "KONOHANA-KU / 此花区",
+    ikuno: "IKUNO-KU / 生野区",
     naniwa: "NANIWA-KU / 浪速区",
     nishi: "NISHI-KU / 西区",
   };
