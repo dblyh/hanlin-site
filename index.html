@@ -134,7 +134,7 @@
         <a class="resource-link" href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzk5MDMyMDEzOQ==&amp;action=getalbum&amp;album_id=4048858344034140160&amp;scene=126&amp;sessionid=1782787810812#wechat_redirect" target="_blank" rel="noopener noreferrer" data-cursor="hover">生活点滴</a>
         <a class="resource-link" href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzk5MDMyMDEzOQ==&amp;action=getalbum&amp;album_id=4290617086096965634&amp;scene=126&amp;sessionid=1782787879776#wechat_redirect" target="_blank" rel="noopener noreferrer" data-cursor="hover">関西万博</a>
         <a class="resource-link" href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzk5MDMyMDEzOQ==&amp;action=getalbum&amp;album_id=4290656389711790082&amp;scene=126&amp;sessionid=1782787844465#wechat_redirect" target="_blank" rel="noopener noreferrer" data-cursor="hover">跑步+</a>
-        <a class="resource-link" href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzk5MDMyMDEzOQ==&amp;action=getalbum&amp;album_id=4355842215575666711#wechat_redirect" target="_blank" rel="noopener noreferrer" data-cursor="hover">燕呢喃</a>
+        <a class="resource-link" href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzk5MDMyMDEzOQ==&amp;action=getalbum&amp;album_id=4355842215575666711#wechat_redirect" target="_blank" rel="noopener noreferrer" data-cursor="hover">盛合㊑</a>
       </section>
     </div>
   </aside>
@@ -953,7 +953,9 @@
           }
         } catch (_) {}
       }
-      setCollapsed(readStorage(collapsedKey) === "1");
+      const savedCollapsed = readStorage(collapsedKey);
+      const defaultCollapsed = window.matchMedia("(max-width: 1100px)").matches;
+      setCollapsed(savedCollapsed == null ? defaultCollapsed : savedCollapsed === "1");
 
       if (toggle) {
         toggle.addEventListener("click", () => {
